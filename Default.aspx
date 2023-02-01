@@ -11,6 +11,7 @@
         <div>
             <h2>
                 CSC 492 - Virtual Advisor Project
+                Mason kutz
             </h2>
         </div>
     </form>
