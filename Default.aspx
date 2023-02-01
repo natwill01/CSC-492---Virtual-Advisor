@@ -12,6 +12,7 @@
             <h2>
                 CSC 492 - Virtual Advisor Project
                 Mason kutz
+                Nathan Williams
             </h2>
         </div>
     </form>
