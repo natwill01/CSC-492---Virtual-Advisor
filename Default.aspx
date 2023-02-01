@@ -12,6 +12,7 @@
             <h2>
                 CSC 492 - Virtual Advisor Project
                 Nathan - Testing
+                Mason - Testing
             </h2>
         </div>
     </form>
