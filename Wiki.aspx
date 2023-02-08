@@ -37,7 +37,7 @@
         necessary paperwork and the press release.
 
         Coming up next, we plan to get the framework for Virtual Advisor set in place as we now 
-        all have our machines set up with GitHub and Virtual Studios.
+        all have our machines set up with GitHub and Microsoft Visual Studio.
         </pre>
 
 
