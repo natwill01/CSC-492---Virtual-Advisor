@@ -26,6 +26,21 @@
         We are excited to work on this project and hope that users find this website very helpful.
         </pre>
         
+        <h3>
+            Update - 02/08/2023
+        </h3>
+        <pre>
+        Hey!
+
+        All team members of Astronomic Ind. are running at full force and ready to start
+        laying down the foundation of Virtual Advisor. This week was spent doing the
+        necessary paperwork and the press release.
+
+        Coming up next, we plan to get the framework for Virtual Advisor set in place as we now 
+        all have our machines set up with GitHub and Virtual Studios.
+        </pre>
+
+
     </form>
 </body>
 </html>
