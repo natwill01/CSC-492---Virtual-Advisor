@@ -12,18 +12,15 @@
             Astronomic Industries - Blog
         </h1>
         <h3>
-            Update - 02/01/2023
+            Update - 02/20/2023
         </h3>
         <pre>
         Hello!
         
-        Our team has been working hard at setting up the initial project files and GitHub to
-        work hard on the first stages of our Virtual Advisor project.
-        
-        We plan to have all the pages we need initially set up by next week. Our team also plans to
-        finish up the SRS Document and have our initial press release sent out to the public.
-        
-        We are excited to work on this project and hope that users find this website very helpful.
+        Since the last update, we have started to organize and create tables for Virrtual Advisor's
+        database. We also finalized our first press release and it has been put up around campus. 
+        There have been a few setbacks due to athletic participation that has made it hard to meet 
+        this past week but we plan to get back on top of the ball and moving again soon.
         </pre>
         
         <h3>
@@ -38,6 +35,21 @@
 
         Coming up next, we plan to get the framework for Virtual Advisor set in place as we now 
         all have our machines set up with GitHub and Microsoft Visual Studio.
+        </pre>
+
+        <h3>
+            Update - 02/01/2023
+        </h3>
+        <pre>
+        Hello!
+        
+        Our team has been working hard at setting up the initial project files and GitHub to
+        work hard on the first stages of our Virtual Advisor project.
+        
+        We plan to have all the pages we need initially set up by next week. Our team also plans to
+        finish up the SRS Document and have our initial press release sent out to the public.
+        
+        We are excited to work on this project and hope that users find this website very helpful.
         </pre>
 
 
