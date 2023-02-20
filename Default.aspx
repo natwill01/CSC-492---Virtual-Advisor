@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <h2>
-                CSC 492 - Virtual Advisor Project!!!
+                CSC 492 - Virtual Advisor Project
             </h2>
         </div>
         <ul>
