@@ -12,12 +12,25 @@
             Astronomic Industries - Blog
         </h1>
         <h3>
+            Update - 03/20/2023
+        </h3>
+        <pre>
+        Hey!
+
+        Our team has been away for spring break the past week, but we are rejuvinated and ready to work hard.
+        We finished our first deisgn document, and in this we finalized our SQL table structure. This will
+        help us move forward as now we can start coding some front end stuff and start making the website
+        more presentable.
+
+        We are excited to continue working on the project. Keep looking here for updates in the future!
+        </pre>
+        <h3>
             Update - 02/20/2023
         </h3>
         <pre>
         Hello!
         
-        Since the last update, we have started to organize and create tables for Virrtual Advisor's
+        Since the last update, we have started to organize and create tables for Virtual Advisor's
         database. We also finalized our first press release and it has been put up around campus. 
         There have been a few setbacks due to athletic participation that has made it hard to meet 
         this past week but we plan to get back on top of the ball and moving again soon.
