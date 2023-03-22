@@ -1,0 +1,26 @@
+﻿.homepageText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    min-height: 400px;
+    color: black;
+}
+
+    .homepageText h1 {
+        font-size: 50px;
+        font-family: Arial;
+        transition: all .4s ease-in-out;
+    }
+
+    .homepageText h1:hover {
+        transform: scale(1.1);
+    }
+
+    .homepageText h3 {
+        font-size: 10px;
+        font-family: Arial;
+    }
