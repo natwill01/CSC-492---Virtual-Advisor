@@ -9,16 +9,42 @@
 
 <body>
     <form id="form1" runat="server">      
-        <ul>
+        <ul class="homepageNav">
             <li>
                 <a href="Wiki.aspx">Our Blog</a>
             </li>
+            <li>
+                <a href="Login.aspx">Login</a>
+            </li>
         </ul>
+
+        <div class="homepageLogo">
+
+        </div>
 
         <div class="homepageText">
             <h1>Virtual Advisor</h1>
-            <h3>Presented By Astronomic Industries</h3>
         </div>
+
+        <table class="centeredTable">
+            <tr>
+                <td>
+                    <div class="separatedView">
+
+                    </div>
+                </td>
+                <td>
+                    <div class="separatedView">
+
+                    </div>
+                </td>
+                <td>
+                    <div class="separatedView">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
 

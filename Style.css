@@ -3,10 +3,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     text-align: center;
     width: 100%;
-    min-height: 400px;
+    min-height: 200px;
     color: black;
 }
 
@@ -18,9 +18,68 @@
 
     .homepageText h1:hover {
         transform: scale(1.1);
+        cursor: default;
     }
 
     .homepageText h3 {
         font-size: 10px;
         font-family: Arial;
     }
+
+.centeredTable {
+    justify-content: center;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 100px 0;
+}
+
+.separatedView {
+    width: 300px;
+    height: 200px;
+    border: 2px solid purple;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.homepageLogo {
+
+}
+
+.homepageNav {
+    padding-right: 50px;
+    padding-top: 25px;
+    float: right;
+    position: relative;
+    z-index: 10;
+}
+
+    .homepageNav li {
+        list-style: none;
+        display: inline-block;
+        padding-left: 30px;
+    }
+
+        .homepageNav li a {
+            display: block;
+            padding: 8px;
+            border: 2px solid black;
+            border-radius: 4px;
+            color: black;
+            font-size: 16px;
+            -webkit-transition: border-color 300ms ease, color 300ms cubic-bezier(.23, 1, .32, 1), background-color 300ms ease;
+            transition: border-color 300ms ease, color 300ms cubic-bezier(.23, 1, .32, 1), background-color 300ms ease;
+            font-family: Arial;
+            font-size: 16px;
+            line-height: 22px;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 0.4px;
+            font-weight: 700;
+        }
+
+            .homepageNav li a:hover {
+                border-color: black;
+                background-color: black;
+                color: purple !important;
+            }
