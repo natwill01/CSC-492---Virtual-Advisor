@@ -67,13 +67,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="4YearPlan.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="GPA.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="PersonalizedPlan.aspx" />
     <Content Include="Style.css" />
     <Content Include="Web.config" />
     <Content Include="Wiki.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="4YearPlan.aspx.cs">
+      <DependentUpon>4YearPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="4YearPlan.aspx.designer.cs">
+      <DependentUpon>4YearPlan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -81,12 +91,26 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GPA.aspx.cs">
+      <DependentUpon>GPA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GPA.aspx.designer.cs">
+      <DependentUpon>GPA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalizedPlan.aspx.cs">
+      <DependentUpon>PersonalizedPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonalizedPlan.aspx.designer.cs">
+      <DependentUpon>PersonalizedPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wiki.aspx.cs">

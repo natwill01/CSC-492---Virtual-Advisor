@@ -1,4 +1,11 @@
-﻿.homepageText {
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+/****************************************************************/
+
+.homepageText {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,3 +90,13 @@
                 background-color: black;
                 color: purple !important;
             }
+
+.gradient {
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom, purple, white);
+}
