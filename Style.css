@@ -50,7 +50,15 @@
 }
 
 .homepageLogo {
-
+    margin-top: 12px;
+    margin-left: 12px;
+    height: 125px;
+    width: 215px;
+    float: left;
+    background: url(Images/mountunionlogo-removebg-preview.png) no-repeat center center;
+    background-size: contain;
+    background-position: center center;
+    position: relative;
 }
 
 .homepageNav {
@@ -97,6 +105,6 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 30px;
-    background: linear-gradient(to bottom, purple, white);
+    height: 40px;
+    background: linear-gradient(to bottom, #663366, #fff);
 }

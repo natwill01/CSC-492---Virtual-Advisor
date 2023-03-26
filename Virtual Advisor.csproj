@@ -70,6 +70,7 @@
     <Content Include="4YearPlan.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="GPA.aspx" />
+    <Content Include="Images\mountunionlogo-removebg-preview.png" />
     <Content Include="Login.aspx" />
     <Content Include="PersonalizedPlan.aspx" />
     <Content Include="Style.css" />
@@ -130,6 +131,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

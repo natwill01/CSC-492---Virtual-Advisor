@@ -9,6 +9,7 @@
 
 <body>
     <form id="form" runat="server">
+        <div class="homepageLogo"></div>
         <div class="gradient"></div>
         <div>
             <ul class="homepageNav">
