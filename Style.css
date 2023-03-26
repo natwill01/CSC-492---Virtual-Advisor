@@ -3,22 +3,27 @@
     margin: 0px;
 }
 
+body {
+    animation: pageLoadTransition 0.7s;
+}
+
 /****************************************************************/
+
 
 .homepageText {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: relative;
+    position: absolute;
     text-align: center;
     width: 100%;
-    min-height: 200px;
+    min-height: 300px;
     color: black;
 }
 
     .homepageText h1 {
-        font-size: 50px;
+        font-size: 60px;
         font-family: Arial;
         transition: all .4s ease-in-out;
     }
@@ -26,11 +31,6 @@
     .homepageText h1:hover {
         transform: scale(1.1);
         cursor: default;
-    }
-
-    .homepageText h3 {
-        font-size: 10px;
-        font-family: Arial;
     }
 
 .centeredTable {
@@ -105,6 +105,23 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 40px;
+    height: 27px;
     background: linear-gradient(to bottom, #663366, #fff);
 }
+
+
+/****************************************************************/
+
+@keyframes pageLoadTransition {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/****************************************************************/

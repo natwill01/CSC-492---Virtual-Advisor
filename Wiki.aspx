@@ -15,6 +15,19 @@
             Update - 03/20/2023
         </h3>
         <pre>
+        Hello!
+        
+        Our team has been working hard finalizing our design document #2. While doing so we ran into a few
+        problems publishing to the server. These issues have been addressed and fixed and we are ready to
+        get back to working hard on the project.
+
+        You may notice a lot of changes on the homepage and more pages start getting added. We are excited
+        to add functionality to them and continue to bring updates to our many fans!
+        </pre>
+        <h3>
+            Update - 03/13/2023
+        </h3>
+        <pre>
         Hey!
 
         Our team has been away for spring break the past week, but we are rejuvinated and ready to work hard.
