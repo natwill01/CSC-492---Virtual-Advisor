@@ -1,4 +1,5 @@
-﻿* {
+﻿/****************************************************************/
+* {
     padding: 0px;
     margin: 0px;
 }
@@ -6,48 +7,100 @@
 body {
     animation: pageLoadTransition 0.7s;
 }
-
 /****************************************************************/
 
-
 .homepageText {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*border: 2px solid red;*/
+    align-items: center;
     text-align: center;
-    width: 100%;
-    min-height: 300px;
+    width: contain;
     color: black;
 }
 
     .homepageText h1 {
         font-size: 60px;
         font-family: Arial;
-        transition: all .4s ease-in-out;
+        transition: all .35s ease-in-out;
     }
 
     .homepageText h1:hover {
-        transform: scale(1.1);
+        transform: scale(1.15);
         cursor: default;
     }
 
+/****************************************************************/
+
 .centeredTable {
+    /*border: 2px solid red;*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    min-height: 600px;
     border-collapse: separate;
-    border-spacing: 100px 0;
+    border-spacing: 60px 0;
 }
 
 .separatedView {
-    width: 300px;
-    height: 200px;
-    border: 2px solid purple;
-    position: relative;
+    width: 325px;
+    height: 225px;
+    display: block;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 15px;
     text-align: center;
     cursor: default;
 }
+
+    .separatedView:hover {
+        background-color: rgba(102, 51, 102, 0.25);
+        transition: all .2s ease-in-out;
+    }
+
+    .separatedView h3 {
+        font-family: Arial;
+        font-size: 20px;
+    }
+
+        .separatedView h3:hover {
+            transform: scale(1.05);
+            transition: all .2s ease-in-out;
+        }
+
+    .separatedView p {
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    .separatedView a {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        padding: 8px;
+        border: 2px solid black;
+        border-radius: 4px;
+        color: black;
+        font-size: 16px;
+        -webkit-transition: border-color 300ms ease, color 300ms cubic-bezier(.23, 1, .32, 1), background-color 300ms ease;
+        transition: border-color 300ms ease, color 300ms cubic-bezier(.23, 1, .32, 1), background-color 300ms ease;
+        font-family: Arial;
+        font-size: 16px;
+        line-height: 22px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+        .separatedView a:hover {
+            border-color: black;
+            background-color: black;
+            color: purple !important;
+        }
 
 .homepageLogo {
     margin-top: 12px;
@@ -89,7 +142,6 @@ body {
             line-height: 22px;
             text-align: center;
             text-decoration: none;
-            letter-spacing: 0.4px;
             font-weight: 700;
         }
 
