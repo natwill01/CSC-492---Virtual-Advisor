@@ -14,7 +14,6 @@ body {
     top: 175px;
     left: 50%;
     transform: translate(-50%, -50%);
-    /*border: 2px solid red;*/
     align-items: center;
     text-align: center;
     width: contain;
@@ -35,13 +34,13 @@ body {
 /****************************************************************/
 
 .centeredTable {
-    /*border: 2px solid red;*/
+    position: absolute;
+    top: 300px;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
-    min-height: 600px;
     border-collapse: separate;
     border-spacing: 60px 0;
 }
@@ -78,8 +77,6 @@ body {
     }
 
     .separatedView a {
-        position: absolute;
-        bottom: 0;
         display: block;
         padding: 8px;
         border: 2px solid black;
