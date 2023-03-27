@@ -3,13 +3,46 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
+    <head runat="server">
+        <title>Virtual Advisor - Login</title>
+        <link rel="stylesheet" href="Style.css" />
+    </head>
+
+    <body>
+        <form id="form1" runat="server">
+            <div class="homepageLogo"></div>
+            <div class="gradient"></div>
+            <ul class="homepageNav">
+                <li>
+                    <a href="Default.aspx">Homepage</a>
+                </li>
+            </ul>
+
+            <div class="loginWrapper">
+                <br /><br />
+                <h3>Please Login to View Your Personalized Plan:</h3>
+
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblUserName" runat="server" Text="User Name: "></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr><td><br /></td><td><br /></td></tr>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </form>
+    </body>
 </html>

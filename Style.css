@@ -158,6 +158,23 @@ body {
     background: linear-gradient(to bottom, #663366, #fff);
 }
 
+.loginWrapper {
+    margin: 0 auto;
+    max-width: 800px;
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: #787976;
+    justify-content: center;
+    color: white;
+}
+
+    .loginWrapper h3 {
+        font-family: Arial;
+        font-size: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 
 /****************************************************************/
 
