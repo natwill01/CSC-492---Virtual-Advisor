@@ -21,7 +21,7 @@
             <div class="loginWrapper">
                 <br /><br />
                 <h3>Please Login to View Your Personalized Plan:</h3>
-
+                <br />
                 <table>
                     <tr>
                         <td>
@@ -34,13 +34,16 @@
                     <tr><td><br /></td><td><br /></td></tr>
                     <tr>
                         <td>
-
+                            <asp:Label ID="lblPassword" runat="server" Text="Password: "></asp:Label>
                         </td>
                         <td>
-
+                            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
+                <br />
+                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="centeredButton" />
+                <br /><br />
             </div>
 
         </form>

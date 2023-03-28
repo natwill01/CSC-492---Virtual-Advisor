@@ -176,6 +176,10 @@ body {
         text-align: center;
     }
 
+.centeredButton {
+    position: relative;
+}
+
 /****************************************************************/
 
 @keyframes pageLoadTransition {
