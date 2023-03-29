@@ -26,11 +26,20 @@
         <pre>
         Hello!
        
-        We have been hard at work with finishing the psuedocode for design document #3. We have gotten to work
+        We have been hard at work with finishing the psuedocode for design document #2. We have gotten to work
         with our sql back end database, organizing our data for ease of reference. You should be able to notice
         big changes to our site, including a login page and updated home page!
 
         Thanks for following along, and we are amped to continue making progress on Virtual Advisor!
+        </pre>
+        <h3>
+            Update - 03/22/2023
+        </h3>
+        <pre>
+        Hello all,
+            Progress seems to be halted by some complications with copper and our abilities to publish our changes.
+            We are working on fixing the problem to get back up and running. In the mean time we have started with 
+            Design Document #2. 
         </pre>
         <h3>
             Update - 03/20/2023
