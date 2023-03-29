@@ -159,25 +159,63 @@ body {
 }
 
 .loginWrapper {
-    margin: 0 auto;
-    max-width: 800px;
+    margin: 100px auto;
+    max-width: 700px;
     border: 2px solid black;
     border-radius: 6px;
     background-color: #787976;
     justify-content: center;
+    align-content: center;
     color: white;
 }
-
     .loginWrapper h3 {
+        display: flex;
+        justify-content: center;
+        align-content: center;
         font-family: Arial;
         font-size: 20px;
+    }
+
+        .loginWrapper h3:hover {
+            transform: scale(1.05);
+            transition: all .2s ease-in-out;
+        }
+    
+    .loginWrapper table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .loginWrapper tr td {
+        font-family: Arial;
+        font-size: 18px;
+    }
+
+    .loginWrapper a {
+        margin: 0 auto;
         align-items: center;
         justify-content: center;
         text-align: center;
+        color: white;
+        font-family: Arial;
     }
 
 .centeredButton {
-    position: relative;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.centeredTextNoHover {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-family: Arial;
 }
 
 /****************************************************************/

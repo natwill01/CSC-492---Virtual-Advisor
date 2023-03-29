@@ -21,7 +21,7 @@
             <div class="loginWrapper">
                 <br /><br />
                 <h3>Please Login to View Your Personalized Plan:</h3>
-                <br />
+                <br /><br />
                 <table>
                     <tr>
                         <td>
@@ -42,8 +42,21 @@
                     </tr>
                 </table>
                 <br />
-                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="centeredButton" />
-                <br /><br />
+                
+                <div class="centeredButton">
+                    <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
+                    <br />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" />
+                </div>
+                <br />
+                <p>
+                    <a href="CreateAccount.aspx">Create A New Account</a>
+                </p>
+                <br />
+                <p>
+                    <a href="ForgotPassword.aspx">Forgot Password?</a>
+                </p>
+                <br />
             </div>
 
         </form>

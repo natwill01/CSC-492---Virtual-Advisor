@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="4YearPlan.aspx" />
+    <Content Include="CreateAccount.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="GPA.aspx" />
     <Content Include="Images\mountunionlogo-removebg-preview.png" />
     <Content Include="Login.aspx" />
@@ -85,12 +87,26 @@
     <Compile Include="4YearPlan.aspx.designer.cs">
       <DependentUpon>4YearPlan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CreateAccount.aspx.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateAccount.aspx.designer.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="GPA.aspx.cs">
       <DependentUpon>GPA.aspx</DependentUpon>
