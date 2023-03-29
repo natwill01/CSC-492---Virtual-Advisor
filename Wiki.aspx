@@ -4,13 +4,22 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Our Blog</title>
+    <title>Virtual Advisor - Our Blog</title>
+    <link rel="stylesheet" href="Style.css" />
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="homepageLogo"></div>
+            <div class="gradient"></div>
+            <ul class="homepageNav">
+                <li>
+                    <a href="Default.aspx">Homepage</a>
+                </li>
+            </ul>
         <h1>
             Astronomic Industries - Blog
         </h1>
+        <br /><br /><br /><br /><br /><br /><br />
         <h3>
             Update - 03/20/2023
         </h3>
