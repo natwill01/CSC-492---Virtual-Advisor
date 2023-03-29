@@ -21,6 +21,18 @@
         </h1>
         <br /><br /><br /><br /><br /><br /><br />
         <h3>
+            Update - 03/29/2023
+        </h3>
+        <pre>
+        Hello!
+       
+        We have been hard at work with finishing the psuedocode for design document #3. We have gotten to work
+        with our sql back end database, organizing our data for ease of reference. You should be able to notice
+        big changes to our site, including a login page and updated home page!
+
+        Thanks for following along, and we are amped to continue making progress on Virtual Advisor!
+        </pre>
+        <h3>
             Update - 03/20/2023
         </h3>
         <pre>
