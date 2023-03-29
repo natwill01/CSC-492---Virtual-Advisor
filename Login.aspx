@@ -41,19 +41,18 @@
                         </td>
                     </tr>
                 </table>
-                <br />
                 
                 <div class="centeredButton">
                     <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
                     <br />
                     <asp:Button ID="btnLogin" runat="server" Text="Login" />
                 </div>
-                <br />
-                <p>
+                <br /><br />
+                <p class="centeredTextNoHover">
                     <a href="CreateAccount.aspx">Create A New Account</a>
                 </p>
                 <br />
-                <p>
+                <p class="centeredTextNoHover">
                     <a href="ForgotPassword.aspx">Forgot Password?</a>
                 </p>
                 <br />
