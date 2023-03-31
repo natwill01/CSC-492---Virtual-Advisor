@@ -18,6 +18,8 @@
                 </li>
             </ul>
 
+            <asp:SqlDataSource ID="sdsLogin" runat="server" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' SelectCommand="SELECT * FROM [StudentInfo]"></asp:SqlDataSource>
+
             <div class="loginWrapper">
                 <br /><br />
                 <h3>Please Login to View Your Personalized Plan:</h3>
@@ -45,7 +47,7 @@
                 <div class="centeredButton">
                     <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
                     <br />
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
                 </div>
                 <br /><br />
                 <p class="centeredTextNoHover">
