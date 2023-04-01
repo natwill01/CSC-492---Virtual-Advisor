@@ -4,20 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Virtual Advisor - Create Account</title>
     <link rel="stylesheet" href="Style.css" />
-    
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        // Trigger the SelectedIndexChanged event when the user selects an item from the drop-down list
-        $("#<%=ddlMajorMinor.ClientID%>").change(function() {
-            __doPostBack("<%=ddlMajorMinor.UniqueID%>", "");
-        });
-    });
-    </script>
 </head>
 
 <body>
@@ -53,9 +41,6 @@
                         </td>
                     </tr>
                 </table>
-                
-                <asp:DropDownList ID="ddlMajorMinor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajorMinor_SelectedIndexChanged"></asp:DropDownList>
-                <asp:CheckBoxList ID="cblClassesTaken" runat="server"></asp:CheckBoxList>
                 
                 <div class="centeredButton">
                     <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>

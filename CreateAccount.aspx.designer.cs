@@ -60,24 +60,6 @@ namespace Virtual_Advisor
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// ddlMajorMinor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMajorMinor;
-
-        /// <summary>
-        /// cblClassesTaken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblClassesTaken;
-
-        /// <summary>
         /// lblStatus control.
         /// </summary>
         /// <remarks>

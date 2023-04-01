@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="4YearPlan.aspx" />
+    <Content Include="ClassesTaken.aspx" />
     <Content Include="CreateAccount.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="ForgotPassword.aspx" />
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="4YearPlan.aspx.designer.cs">
       <DependentUpon>4YearPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClassesTaken.aspx.cs">
+      <DependentUpon>ClassesTaken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClassesTaken.aspx.designer.cs">
+      <DependentUpon>ClassesTaken.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateAccount.aspx.cs">
       <DependentUpon>CreateAccount.aspx</DependentUpon>
