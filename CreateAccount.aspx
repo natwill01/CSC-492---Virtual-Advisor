@@ -25,6 +25,24 @@
                 <table>
                     <tr>
                         <td>
+                            <asp:Label ID="lblFirstName" runat="server" Text="First Name: "></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr><td><br /></td><td><br /></td></tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblLastName" runat="server" Text="Last Name: "></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr><td><br /></td><td><br /></td></tr>
+                    <tr>
+                        <td>
                             <asp:Label ID="lblUserName" runat="server" Text="User Name: "></asp:Label>
                         </td>
                         <td>
@@ -40,12 +58,21 @@
                             <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                         </td>
                     </tr>
+                    <tr><td><br /></td><td><br /></td></tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblGradYear" runat="server" Text="Grad Year: '"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtGradYear" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
                 </table>
                 
                 <div class="centeredButton">
                     <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
                     <br />
-                    <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" />
+                    <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
                 </div>
                 <br /><br />
                 <p class="centeredTextNoHover">
