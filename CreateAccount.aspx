@@ -54,7 +54,7 @@
                     </tr>
                 </table>
                 
-                <asp:DropDownList ID="ddlMajorMinor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajorMinor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMajorMinor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajorMinor_SelectedIndexChanged"></asp:DropDownList>
                 <asp:CheckBoxList ID="cblClassesTaken" runat="server"></asp:CheckBoxList>
                 
                 <div class="centeredButton">

@@ -22,6 +22,8 @@ namespace Virtual_Advisor
         {
             if (!IsPostBack)
             {
+                ddlMajorMinor.Items.Insert(0, new ListItem("Select Major", "-1"));
+
                 conn = new SqlConnection(getConnectionString());
                 cmd = new SqlCommand();
                 cmd.Connection = conn;
@@ -40,7 +42,7 @@ namespace Virtual_Advisor
 
         protected void ddlMajorMinor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblStatus.Text = "SelectedIndexChanged event triggered!";
+            //lblStatus.Text = "SelectedIndexChanged event triggered!";
             
             cblClassesTaken.Items.Clear();
             String majorMinor = Convert.ToString(ddlMajorMinor.SelectedValue);
