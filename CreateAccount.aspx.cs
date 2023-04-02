@@ -16,7 +16,6 @@ namespace Virtual_Advisor
     {
         private SqlConnection conn;
         private SqlCommand cmd;
-        private SqlDataReader dr;
         private int numRowsAffected;
 
         private string firstName;
@@ -40,17 +39,17 @@ namespace Virtual_Advisor
 
             if(firstName.Length > 0 && lastName.Length > 0 && username.Length > 0 && password.Length > 0 && gradYear.Length > 0)
             {
-                if(gradYear.Length > 2)
+                if(gradYear.Length == 2)
                 {
                     conn = new SqlConnection(getConnectionString());
                     cmd = new SqlCommand();
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO StudentInfo VALUES ('@FirstName', '@LastName', '@Username', '@Password', @GradYear)";
-                    cmd.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.CommandText = "INSERT INTO StudentInfo VALUES (@FirstName, @LastName, @Username, @Password, @GradYear)";
+                    cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 20).Value = firstName;
+                    cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 20).Value = lastName;
+                    cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
+                    cmd.Parameters.Add("@Password", SqlDbType.VarChar, 30).Value = password;
                     cmd.Parameters.AddWithValue("@GradYear", gradYear);
                     conn.Open();
 
@@ -59,8 +58,11 @@ namespace Virtual_Advisor
                         numRowsAffected = cmd.ExecuteNonQuery();
                         if(numRowsAffected == 1)
                         {
-                            //Accout has been created
-                            //Add Yes or No button to take to personalized plan Classes Taken Page
+                            Session["username"] = username;
+
+                            lblStatus.Text = "Account Created, thanks for joining!";
+                            pnlInformation.Visible = true;
+
                             txtFirstName.Text = "";
                             txtLastName.Text = "";
                             txtUserName.Text = "";
@@ -92,6 +94,16 @@ namespace Virtual_Advisor
         private string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["VirtualAdvisorConnectionString"].ConnectionString;
+        }
+
+        protected void btnYes_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("ClassesTaken.aspx");
+        }
+
+        protected void btnNo_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("Default.aspx");
         }
     }
 }

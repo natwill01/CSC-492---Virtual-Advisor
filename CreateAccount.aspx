@@ -73,6 +73,15 @@
                     <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
                     <br />
                     <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
+
+                    <asp:Panel ID="pnlInformation" runat="server" Visible="False">
+                        <p>Would you like to enter your class information for the personalized plan?</p>
+                        <br />
+                        <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" />
+                        &nbsp&nbsp&nbsp&nbsp
+                        <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" />
+                    </asp:Panel>
+
                 </div>
                 <br /><br />
                 <p class="centeredTextNoHover">
