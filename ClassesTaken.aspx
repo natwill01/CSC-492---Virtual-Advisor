@@ -10,11 +10,21 @@
     <link rel="stylesheet" href="Style.css" />
     
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script type="text/javascript">
+        const tabs = document.querySelectorAll('.accordion-tab-header');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tab.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+
     <script type="text/javascript">
     $(function() {
         // Trigger the SelectedIndexChanged event when the user selects an item from the drop-down list
-        $("#<%=ddlMajorMinor.ClientID%>").change(function() {
-            __doPostBack("<%=ddlMajorMinor.UniqueID%>", "");
+        $("#<%=ddlMajor.ClientID%>").change(function() {
+            __doPostBack("<%=ddlMajor.UniqueID%>", "");
         });
     });
     </script>
@@ -29,9 +39,29 @@
             </li>
         </ul>
 
-        <asp:DropDownList ID="ddlMajorMinor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajorMinor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
-        <asp:GridView ID="gvClassesTaken" runat="server"></asp:GridView>
+        <!--<div class="accordion">-->
+            
+            <div class="accordion-tab">
+                <div class="accordion-tab-header">Majors</div>
+                
+                <div class="accordion-tab-content">
+                    <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
+                    <asp:GridView ID="gvMajorClassesTaken" runat="server"></asp:GridView>
+                </div>
 
+            </div>
+            
+            <div class="accordion-tab">
+                <div class="accordion-tab-header">Minors</div>
+                
+                <div class="accordion-tab-content">
+                    <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:GridView ID="gvMinorClassesTaken" runat="server"></asp:GridView>
+                </div>
+
+            </div>
+        
+        <!--</div>-->
     </form>
 </body>
 </html>

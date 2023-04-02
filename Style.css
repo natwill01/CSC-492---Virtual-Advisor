@@ -219,6 +219,41 @@ body {
     font-family: Arial;
 }
 
+.accordion {
+    display: flex;
+    border: 5px solid red;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-tab {
+    border: 5px solid red;
+    width: 45%;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.accordion-tab-header {
+    background-color: #ccc;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.accordion-tab-content {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.accordion-tab.active .accordion-tab-content {
+    height: auto;
+}
+
 /****************************************************************/
 
 @keyframes pageLoadTransition {
