@@ -23,7 +23,7 @@ namespace Virtual_Advisor
         {
             if (txtUserName.Text.Length > 0 && txtPassword.Text.Length > 0)
             {
-                sdsLogin.SelectCommand = "SELECT StudentID, Username, Password FROM StudentInfo WHERE Username = @username AND Password = @password";
+                sdsLogin.SelectCommand = "SELECT Username, Password FROM StudentInfo WHERE Username = @username AND Password = @password";
                 sdsLogin.SelectParameters.Add("username", txtUserName.Text);
                 sdsLogin.SelectParameters.Add("password", txtPassword.Text);
                 dView = (DataView)sdsLogin.Select(DataSourceSelectArguments.Empty);

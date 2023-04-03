@@ -58,7 +58,8 @@ namespace Virtual_Advisor
                         numRowsAffected = cmd.ExecuteNonQuery();
                         if(numRowsAffected == 1)
                         {
-                            Session["username"] = username;
+                            Session["Username"] = username;
+                            Session["Password"] = password;
 
                             lblStatus.Text = "Account Created, thanks for joining!";
                             pnlInformation.Visible = true;

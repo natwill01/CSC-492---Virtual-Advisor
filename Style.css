@@ -221,14 +221,12 @@ body {
 
 .accordion {
     display: flex;
-    border: 5px solid red;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
 .accordion-tab {
-    border: 5px solid red;
     width: 45%;
     height: 150px;
     background-color: #fff;

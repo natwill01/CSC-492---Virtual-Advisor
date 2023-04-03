@@ -39,7 +39,7 @@
             </li>
         </ul>
 
-        <!--<div class="accordion">-->
+        <div class="accordion">
             
             <div class="accordion-tab">
                 <div class="accordion-tab-header">Majors</div>
@@ -61,7 +61,7 @@
 
             </div>
         
-        <!--</div>-->
+        </div>
     </form>
 </body>
 </html>
