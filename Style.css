@@ -219,64 +219,54 @@ body {
     font-family: Arial;
 }
 
-.accordion {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.accordion-row {
-    display: flex;
-    flex-basis: 50%;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.accordion-tab {
-    width: 100%;
-    max-width: 300px;
-    height: 150px;
-    background-color: #fff;
+#tabs {
+    font-family: Arial, sans-serif;
     border: 1px solid #ccc;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin: 0 auto;
 }
 
-.accordion-tab-header {
-    background-color: #ccc;
-    padding: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    #tabs ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-.accordion-tab.active .accordion-tab-header {
-    background-color: #ddd;
-}
+        #tabs ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
 
-.accordion-tab-content {
-    padding: 5px;
-    font-size: 14px;
-    height: 0;
-    opacity: 0;
-    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
+            #tabs ul li a {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                color: #333;
+                border: 1px solid #ccc;
+                border-bottom: none;
+                background-color: #fff;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
 
-.accordion-tab.active .accordion-tab-content {
-    height: auto;
-    opacity: 1;
-}
+                #tabs ul li a:hover {
+                    background-color: #eee;
+                }
 
-.accordion-content {
-    width: 100%;
-    display: none;
-}
+            #tabs ul li.active a {
+                background-color: #ccc;
+                color: #fff;
+            }
 
-#major-content {
-    display: block;
-}
+    #tabs div {
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 10px;
+        border-top: none;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
 
 
 /****************************************************************/
