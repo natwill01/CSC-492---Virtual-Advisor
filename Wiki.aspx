@@ -21,6 +21,19 @@
         </h1>
         <br /><br /><br /><br /><br /><br /><br />
         <h3>
+            Update - 04/03/2023
+        </h3>
+        <pre>
+        Hey there!
+
+        A lot has changed since our last update. We have added logging in ability and the ability to create
+        an account. Next on the list is finalizing account information input and using that to finalize the
+        personalized plan. We have a prototype presentation we are excited to show off everything we have
+        so far and our team will be releasing a second press release to the public by next week.
+
+        Stay tuned here for future updates!
+        </pre>
+        <h3>
             Update - 03/29/2023
         </h3>
         <pre>
@@ -37,9 +50,10 @@
         </h3>
         <pre>
         Hello all,
-            Progress seems to be halted by some complications with copper and our abilities to publish our changes.
-            We are working on fixing the problem to get back up and running. In the mean time we have started with 
-            Design Document #2. 
+        
+        Progress seems to be halted by some complications with copper and our abilities to publish our changes.
+        We are working on fixing the problem to get back up and running. In the mean time we have started with 
+        Design Document #2. 
         </pre>
         <h3>
             Update - 03/20/2023

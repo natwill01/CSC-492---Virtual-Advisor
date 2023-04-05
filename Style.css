@@ -221,17 +221,26 @@ body {
 
 .accordion {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.accordion-row {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .accordion-tab {
-    width: 45%;
+    width: 100%;
+    max-width: 300px;
     height: 150px;
     background-color: #fff;
     border: 1px solid #ccc;
     margin-right: 10px;
+    margin-bottom: 10px;
     overflow: hidden;
 }
 
@@ -243,14 +252,32 @@ body {
     cursor: pointer;
 }
 
+.accordion-tab.active .accordion-tab-header {
+    background-color: #ddd;
+}
+
 .accordion-tab-content {
     padding: 5px;
     font-size: 14px;
+    height: 0;
+    opacity: 0;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .accordion-tab.active .accordion-tab-content {
     height: auto;
+    opacity: 1;
 }
+
+.accordion-content {
+    width: 100%;
+    display: none;
+}
+
+#major-content {
+    display: block;
+}
+
 
 /****************************************************************/
 
