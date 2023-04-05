@@ -20,18 +20,6 @@
             Astronomic Industries - Blog
         </h1>
         <br /><br /><br /><br /><br /><br /><br />
-         <h3>
-            Update - 04/05/2023
-        </h3>
-        <pre>
-        Hey!
-
-        Our team has been working on finalizing some of the main functionality for the prototype demonstration today.
-        We have example data in our database to show how the login page functions. we also have the rough design of the
-        4-year plan up and it is viewable by everyone so go check it out! 
-            
-        We can't wait to get back to work, check back in for more updates! 
-        </pre>
         <h3>
             Update - 03/29/2023
         </h3>
@@ -49,10 +37,9 @@
         </h3>
         <pre>
         Hello all,
-
-        Progress seems to be halted by some complications with copper and our abilities to publish our changes.
-        We are working on fixing the problem to get back up and running. In the mean time we have started with 
-        Design Document #2. 
+            Progress seems to be halted by some complications with copper and our abilities to publish our changes.
+            We are working on fixing the problem to get back up and running. In the mean time we have started with 
+            Design Document #2. 
         </pre>
         <h3>
             Update - 03/20/2023
