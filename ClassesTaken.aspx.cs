@@ -118,6 +118,31 @@ namespace Virtual_Advisor
             conn2.Close();
         }
 
+
+        protected void gvMajorClassesTaken_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<GridViewRow> selectedMajorRows = new List<GridViewRow>();
+            foreach (GridViewRow row in gvMajorClassesTaken.Rows)
+            {
+                if (row.RowIndex == gvMajorClassesTaken.SelectedIndex)
+                {
+                    selectedMajorRows.Add(row);
+                }
+            }
+        }
+
+        protected void gvMinorClassesTaken_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<GridViewRow> selectedMinorRows = new List<GridViewRow>();
+            foreach (GridViewRow row in gvMinorClassesTaken.Rows)
+            {
+                if (row.RowIndex == gvMinorClassesTaken.SelectedIndex)
+                {
+                    selectedMinorRows.Add(row);
+                }
+            }
+        }
+
         private string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["VirtualAdvisorConnectionString"].ConnectionString;

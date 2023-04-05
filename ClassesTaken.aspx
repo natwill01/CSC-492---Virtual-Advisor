@@ -65,11 +65,11 @@
             </ul>
             <div id="tab1">
                 <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
-                <asp:GridView ID="gvMajorClassesTaken" runat="server"></asp:GridView>
+                <asp:GridView ID="gvMajorClassesTaken" runat="server" OnSelectedIndexChanged="gvMajorClassesTaken_SelectedIndexChanged"></asp:GridView>
             </div>
             <div id="tab2">
                 <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
-                <asp:GridView ID="gvMinorClassesTaken" runat="server"></asp:GridView>
+                <asp:GridView ID="gvMinorClassesTaken" runat="server" OnSelectedIndexChanged="gvMinorClassesTaken_SelectedIndexChanged"></asp:GridView>
             </div>
         </div>
 
