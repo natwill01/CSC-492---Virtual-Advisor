@@ -12,21 +12,12 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script type="text/javascript">
-        const tabs = document.querySelectorAll('.accordion-tab-header');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tab.parentElement.classList.toggle('active');
+        $(function() {
+            // Trigger the SelectedIndexChanged event when the user selects an item from the drop-down list
+            $("#<%=ddlMajor.ClientID%>").change(function() {
+                __doPostBack("<%=ddlMajor.UniqueID%>", "");
             });
         });
-    </script>
-
-    <script type="text/javascript">
-    $(function() {
-        // Trigger the SelectedIndexChanged event when the user selects an item from the drop-down list
-        $("#<%=ddlMajor.ClientID%>").change(function() {
-            __doPostBack("<%=ddlMajor.UniqueID%>", "");
-        });
-    });
     </script>
 </head>
 <body>
@@ -40,28 +31,61 @@
         </ul>
 
         <div class="accordion">
-            
-            <div class="accordion-tab">
-                <div class="accordion-tab-header">Majors</div>
-                
-                <div class="accordion-tab-content">
-                    <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
-                    <asp:GridView ID="gvMajorClassesTaken" runat="server"></asp:GridView>
-                </div>
+            <div class="accordion-row">
 
-            </div>
-            
-            <div class="accordion-tab">
-                <div class="accordion-tab-header">Minors</div>
-                
-                <div class="accordion-tab-content">
-                    <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:GridView ID="gvMinorClassesTaken" runat="server"></asp:GridView>
-                </div>
 
+
+                <div class="accordion-tab" id="major-tab">
+              <div class="accordion-tab-header">Majors</div>
+              <div class="accordion-tab-content">
+                <div>
+                  <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
+                </div>
+                <div>
+                  <asp:GridView ID="gvMajorClassesTaken" runat="server"></asp:GridView>
+                </div>
+              </div>
             </div>
-        
+            <div class="accordion-tab" id="minor-tab">
+              <div class="accordion-tab-header">Minors</div>
+              <div class="accordion-tab-content">
+                <div>
+                  <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
+                </div>
+                <div>
+                  <asp:GridView ID="gvMinorClassesTaken" runat="server"></asp:GridView>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-content">
+            <div id="major-content">
+              <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
+              <asp:GridView ID="gvMajorClassesTaken" runat="server"></asp:GridView>
+            </div>
+            <div id="minor-content">
+              <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
+              <asp:GridView ID="gvMinorClassesTaken" runat="server"></asp:GridView>
+            </div>
+          </div>
         </div>
+
+
+
+
+        <script type="text/javascript">
+            const tabs = document.querySelectorAll('.accordion-tab-header');
+            const content = document.querySelectorAll('.accordion-tab-content');
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    content.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    content[index].classList.add('active');
+                });
+            });
+        </script>
+
     </form>
 </body>
 </html>
