@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 
 using System.Data;
 using System.Runtime.Remoting.Messaging;
+using System.Web.DynamicData;
 
 namespace Virtual_Advisor
 {
