@@ -24,15 +24,6 @@ namespace Virtual_Advisor
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// smMajorMinor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager smMajorMinor;
-
-        /// <summary>
         /// rbTabs control.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace Virtual_Advisor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbTabs;
-
-        /// <summary>
-        /// upMajorMinor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upMajorMinor;
 
         /// <summary>
         /// ddlMajor control.

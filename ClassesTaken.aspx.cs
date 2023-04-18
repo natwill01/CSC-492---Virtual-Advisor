@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Runtime.Remoting.Messaging;
 using System.Web.DynamicData;
+using System.Web.UI.HtmlControls;
 
 namespace Virtual_Advisor
 {
@@ -148,5 +149,25 @@ namespace Virtual_Advisor
         {
             return ConfigurationManager.ConnectionStrings["VirtualAdvisorConnectionString"].ConnectionString;
         }
+
+        protected void rbTabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("ContentPlaceHolder1");
+            HtmlGenericControl majorDiv = (HtmlGenericControl)cph.FindControl("majorDiv");
+            HtmlGenericControl minorDiv = (HtmlGenericControl)cph.FindControl("minorDiv");
+
+            if (rbTabs.SelectedItem.Text == "Select Classes for Your Major(s)")
+            {
+                majorDiv.Style.Add("display", "block");
+                minorDiv.Style.Add("display", "none");
+            }
+            else if (rbTabs.SelectedItem.Text == "Select Classes for Your Minor(s)")
+            {
+                majorDiv.Style.Add("display", "none");
+                minorDiv.Style.Add("display", "block");
+            }
+        }
     }
 }
+
+//Try enable view state turning on / off for the if / else...

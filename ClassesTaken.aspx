@@ -11,21 +11,6 @@
     
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-    
-    <%-- 
-    <script type="text/javascript">
-        $(function() {
-            // Trigger the SelectedIndexChanged event when the user selects an item from the drop-down list
-            $("#<%=ddlMajor.ClientID%>").change(function() {
-                __doPostBack("<%=ddlMajor.UniqueID%>", "");
-            });
-
-            $("#<%=ddlMinor.ClientID%>").change(function() {
-                __doPostBack("<%=ddlMajor.UniqueID%>", "");
-            });
-        });
-    </script>
-    --%>
 
 </head>
 
@@ -38,48 +23,23 @@
                 <a href="Default.aspx">Homepage</a>
             </li>
         </ul>
+            
+        <div class="selectClasses">
+            <asp:RadioButtonList ID="rbTabs" runat="server" OnSelectedIndexChanged="rbTabs_SelectedIndexChanged" AutoPostBack="True">
+                <asp:ListItem Value="1">Select Classes for Your Major(s)</asp:ListItem>
+                <asp:ListItem Value="2">Select Classes for Your Minor(s)</asp:ListItem>
+            </asp:RadioButtonList>
+        </div>
 
-        <asp:ScriptManager ID="smMajorMinor" runat="server"></asp:ScriptManager>
-            <
-            <div class="selectClasses">
-                <asp:RadioButtonList ID="rbTabs" runat="server">
-                    <asp:ListItem Value="1">Select Classes for Your Major(s)</asp:ListItem>
-                    <asp:ListItem Value="2">Select Classes for Your Minor(s)</asp:ListItem>
-                </asp:RadioButtonList>
-            </div>
-
-        <asp:UpdatePanel ID="upMajorMinor" runat="server"></asp:UpdatePanel>
-            <ContentTemplate>
-                <div>
-                    <div id="majorDiv" style="display: none;">
-                        <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
-                        <asp:GridView ID="gvMajorClassesTaken" runat="server" OnSelectedIndexChanged="gvMajorClassesTaken_SelectedIndexChanged"></asp:GridView>
-                    </div>
-                    <div id="minorDiv" style="display: none;">
-                        <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
-                        <asp:GridView ID="gvMinorClassesTaken" runat="server" OnSelectedIndexChanged="gvMinorClassesTaken_SelectedIndexChanged"></asp:GridView>
-                    </div>
-                </div>
-            </ContentTemplate>
-            <Triggers>
-                
-            </Triggers>
-
-        <script type="text/javascript">
-            function rbTabs_SelectedIndexChanged() {
-                var majorDiv = document.getElementById('majorDiv');
-                var minorDiv = document.getElementById('minorDiv');
-                var rbTabs = document.getElementById('<%= rbTabs.ClientID %>');
-
-                if (rbTabs.value == '1') {
-                    majorDiv.style.display = 'block';
-                    minorDiv.style.display = 'none';
-                } else if (rbTabs.value == '2') {
-                    majorDiv.style.display = 'none';
-                    minorDiv.style.display = 'block';
-                }
-            }
-        </script>
+        <div id="majorDiv" style="display: none;">
+            <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
+            <asp:GridView ID="gvMajorClassesTaken" runat="server" OnSelectedIndexChanged="gvMajorClassesTaken_SelectedIndexChanged"></asp:GridView>
+        </div>
+            
+        <div id="minorDiv" style="display: none;">
+            <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
+            <asp:GridView ID="gvMinorClassesTaken" runat="server" OnSelectedIndexChanged="gvMinorClassesTaken_SelectedIndexChanged"></asp:GridView>
+        </div>
 
     </form>
 </body>
