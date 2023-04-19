@@ -145,29 +145,23 @@ namespace Virtual_Advisor
             }
         }
 
+        protected void rbTabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rbTabs.SelectedItem.Text == "Select Classes for Your Major(s)")
+            {
+                ddlMajor.Visible = true;
+                ddlMinor.Visible = false;
+            }
+            else if (rbTabs.SelectedItem.Text == "Select Classes for Your Minor(s)")
+            {
+                ddlMinor.Visible = true;
+                ddlMajor.Visible = false;
+            }
+        }
+
         private string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["VirtualAdvisorConnectionString"].ConnectionString;
         }
-
-        protected void rbTabs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ContentPlaceHolder cph = (ContentPlaceHolder)this.Master.FindControl("ContentPlaceHolder1");
-            HtmlGenericControl majorDiv = (HtmlGenericControl)cph.FindControl("majorDiv");
-            HtmlGenericControl minorDiv = (HtmlGenericControl)cph.FindControl("minorDiv");
-
-            if (rbTabs.SelectedItem.Text == "Select Classes for Your Major(s)")
-            {
-                majorDiv.Style.Add("display", "block");
-                minorDiv.Style.Add("display", "none");
-            }
-            else if (rbTabs.SelectedItem.Text == "Select Classes for Your Minor(s)")
-            {
-                majorDiv.Style.Add("display", "none");
-                minorDiv.Style.Add("display", "block");
-            }
-        }
     }
 }
-
-//Try enable view state turning on / off for the if / else...
