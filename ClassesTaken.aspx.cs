@@ -18,13 +18,10 @@ namespace Virtual_Advisor
 {
     public partial class ClassesTaken : System.Web.UI.Page
     {
-        private SqlConnection conn1;
-        private SqlCommand cmd1;
-        private SqlDataReader reader1;
-
-        private SqlConnection conn2;
-        private SqlCommand cmd2;
-        private SqlDataReader reader2;
+        private SqlConnection conn;
+        private SqlCommand cmd;
+        private SqlDataReader reader;
+        private int numRowsAffected;
 
         private string course;
         private string grade;
@@ -45,35 +42,35 @@ namespace Virtual_Advisor
                     ddlMajor.Items.Insert(0, new ListItem("Select Major", "-1"));
                     ddlMinor.Items.Insert(0, new ListItem("Select Minor", "-1"));
 
-                    conn1 = new SqlConnection(getConnectionString());
-                    cmd1 = new SqlCommand();
-                    cmd1.Connection = conn1;
-                    cmd1.CommandType = CommandType.Text;
-                    cmd1.CommandText = "SELECT DISTINCT [Major_Minor] FROM [Requirements] WHERE Major_Minor LIKE '%Major%'";
-                    conn1.Open();
+                    conn = new SqlConnection(getConnectionString());
+                    cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT DISTINCT [Major_Minor] FROM [Requirements] WHERE Major_Minor LIKE '%Major%'";
+                    conn.Open();
 
-                    reader1 = cmd1.ExecuteReader();
-                    ddlMajor.DataSource = reader1;
+                    reader = cmd.ExecuteReader();
+                    ddlMajor.DataSource = reader;
                     ddlMajor.DataTextField = "Major_Minor";
                     ddlMajor.DataValueField = "Major_Minor";
                     ddlMajor.DataBind();
-                    conn1.Close();
+                    conn.Close();
 
                     //***************************************************************************************//
 
-                    conn2 = new SqlConnection(getConnectionString());
-                    cmd2 = new SqlCommand();
-                    cmd2.Connection = conn2;
-                    cmd2.CommandType = CommandType.Text;
-                    cmd2.CommandText = "SELECT DISTINCT [Major_Minor] FROM [Requirements] WHERE Major_Minor LIKE '%Minor%'";
-                    conn2.Open();
+                    conn = new SqlConnection(getConnectionString());
+                    cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT DISTINCT [Major_Minor] FROM [Requirements] WHERE Major_Minor LIKE '%Minor%'";
+                    conn.Open();
 
-                    reader2 = cmd2.ExecuteReader();
-                    ddlMinor.DataSource = reader2;
+                    reader = cmd.ExecuteReader();
+                    ddlMinor.DataSource = reader;
                     ddlMinor.DataTextField = "Major_Minor";
                     ddlMinor.DataValueField = "Major_Minor";
                     ddlMinor.DataBind();
-                    conn2.Close();
+                    conn.Close();
                 }
             }
         }
@@ -132,7 +129,16 @@ namespace Virtual_Advisor
                 }
             }
 
-            //Inserts
+            conn = new SqlConnection(getConnectionString());
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO StudentInfo VALUES (@FirstName, @LastName, @Username, @Password, @GradYear)";
+            cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 20).Value = firstName;
+            cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 20).Value = lastName;
+            cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
+            cmd.Parameters.Add("@Password", SqlDbType.VarChar, 30).Value = password;
+            cmd.Parameters.AddWithValue("@GradYear", gradYear);
         }
 
         protected void btnMinorAddClasses_Click(object sender, EventArgs e)
