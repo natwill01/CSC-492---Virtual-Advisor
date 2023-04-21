@@ -23,7 +23,7 @@ namespace Virtual_Advisor
         private SqlDataReader reader;
         private int numRowsAffected;
 
-        private string course;
+        private string code;
         private string grade;
         private string major_minor;
         private string username;
@@ -124,7 +124,7 @@ namespace Virtual_Advisor
                 CheckBox cb = (CheckBox)row.FindControl("cbMajorSelected");
                 if (cb.Checked)
                 {
-                    course = row.Cells[1].Text;
+                    code = row.Cells[1].Text;
                     grade = row.Cells[4].Text;
                 }
             }
@@ -133,12 +133,74 @@ namespace Virtual_Advisor
             cmd = new SqlCommand();
             cmd.Connection = conn;
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO StudentInfo VALUES (@FirstName, @LastName, @Username, @Password, @GradYear)";
-            cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 20).Value = firstName;
-            cmd.Parameters.Add("@LastName", SqlDbType.VarChar, 20).Value = lastName;
+            
+            cmd.CommandText = "INSERT INTO ClassesTaken VALUES (@CourseCode, @Grade)";
+            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+            cmd.Parameters.Add("@Grade", SqlDbType.VarChar, 2).Value = grade;
+
+            conn.Open();
+            try
+            {
+                numRowsAffected = cmd.ExecuteNonQuery();
+                if (numRowsAffected == 1)
+                {
+                    lblStatus.Text = "Thank you for adding your classes!";
+                }
+                else
+                {
+                    lblStatus.Text = "Classes Not Added.";
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Classes not added. These classe(s) are already entered.";
+            }
+            conn.Close();
+
+            cmd.CommandText = "INSERT INTO ClassesTaken_Req VALUES (@Major, @CourseCode)";
+            cmd.Parameters.Add("@Major", SqlDbType.VarChar, 50).Value = major_minor;
+            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+
+            conn.Open();
+            try
+            {
+                numRowsAffected = cmd.ExecuteNonQuery();
+                if (numRowsAffected == 1)
+                {
+                    lblStatus.Text = "Thank you for adding your classes!";
+                }
+                else
+                {
+                    lblStatus.Text = "Classes Not Added.";
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Classes not added. These classes are already entered.";
+            }
+            conn.Close();
+
+            cmd.CommandText = "INSERT INTO Student_ClassesTaken VALUES (@Username)";
             cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
-            cmd.Parameters.Add("@Password", SqlDbType.VarChar, 30).Value = password;
-            cmd.Parameters.AddWithValue("@GradYear", gradYear);
+
+            conn.Open();
+            try
+            {
+                numRowsAffected = cmd.ExecuteNonQuery();
+                if (numRowsAffected == 1)
+                {
+                    lblStatus.Text = "Thank you for adding your classes!";
+                }
+                else
+                {
+                    lblStatus.Text = "Classes Not Added.";
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Classes not added. These classes are already entered.";
+            }
+            conn.Close();
         }
 
         protected void btnMinorAddClasses_Click(object sender, EventArgs e)
@@ -148,12 +210,83 @@ namespace Virtual_Advisor
                 CheckBox cb = (CheckBox)row.FindControl("cbMinorSelected");
                 if (cb.Checked)
                 {
-                    course = row.Cells[1].Text;
+                    code = row.Cells[1].Text;
                     grade = row.Cells[4].Text;
                 }
             }
 
-            //Inserts
+            conn = new SqlConnection(getConnectionString());
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+
+            cmd.CommandText = "INSERT INTO ClassesTaken VALUES (@CourseCode, @Grade)";
+            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+            cmd.Parameters.AddWithValue("@Grade", grade);
+
+            conn.Open();
+            try
+            {
+                numRowsAffected = cmd.ExecuteNonQuery();
+                if (numRowsAffected == 1)
+                {
+                    lblStatus.Text = "Thank you for adding your classes!";
+                }
+                else
+                {
+                    lblStatus.Text = "Classes Not Added.";
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Classes not added. These classes are already entered.";
+            }
+            conn.Close();
+
+            cmd.CommandText = "INSERT INTO ClassesTaken_Req VALUES (@Major, @CourseCode)";
+            cmd.Parameters.Add("@Major", SqlDbType.VarChar, 50).Value = major_minor;
+            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+
+            conn.Open();
+            try
+            {
+                numRowsAffected = cmd.ExecuteNonQuery();
+                if (numRowsAffected == 1)
+                {
+                    lblStatus.Text = "Thank you for adding your classes!";
+                }
+                else
+                {
+                    lblStatus.Text = "Classes Not Added.";
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Classes not added. These classes are already entered.";
+            }
+            conn.Close();
+
+            cmd.CommandText = "INSERT INTO Student_ClassesTaken VALUES (@Username)";
+            cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
+
+            conn.Open();
+            try
+            {
+                numRowsAffected = cmd.ExecuteNonQuery();
+                if (numRowsAffected == 1)
+                {
+                    lblStatus.Text = "Thank you for adding your classes!";
+                }
+                else
+                {
+                    lblStatus.Text = "Classes Not Added.";
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Classes not added. These classes are already entered.";
+            }
+            conn.Close();
         }
     }
 }

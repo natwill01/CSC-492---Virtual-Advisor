@@ -84,6 +84,9 @@
             </asp:SqlDataSource>
             <asp:Button ID="btnMinorAddClasses" runat="server" Text="Add Classes" OnClick="btnMinorAddClasses_Click" Visible="False" />
         </div>
+
+        <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
+
     </form>
 </body>
 </html>

@@ -16,6 +16,9 @@
                 <li>
                     <a href="Default.aspx">Homepage</a>
                 </li>
+                <li>
+                    <a href="ClassesTaken.aspx">Enter Classes</a>
+                </li>
             </ul>
 
             <div class="loginWrapper">
@@ -89,6 +92,8 @@
                 </p>
                 <br />
             </div>
+
+            
     </form>
 </body>
 </html>
