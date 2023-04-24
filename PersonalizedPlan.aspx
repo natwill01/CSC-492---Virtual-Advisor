@@ -23,10 +23,43 @@
          </ul>
 
         <div>
-            <asp:DropDownList ID="DDLPP_Major" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DDLPP_Major_SelectedIndexChanged"></asp:DropDownList>
-            <asp:DropDownList ID="DDLPP_Minor" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DDLPP_Minor_SelectedIndexChanged"></asp:DropDownList>
-            <asp:GridView ID="GVPP" runat="server"></asp:GridView>
+            <asp:GridView ID="gvRequiredPersonalizedPlan" runat="server" DataSourceID="sdsRequiredPersonalizedPlan"></asp:GridView>
+            
+            <asp:SqlDataSource runat="server" ID="sdsRequiredPersonalizedPlan" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' 
+                SelectCommand="SELECT r.Code, r.Descrip, r.Credits
+                                FROM Requirements r 
+                                LEFT JOIN (SELECT DISTINCT Code_CT FROM ClassesTaken) ct 
+                                  ON r.Code = ct.Code_CT 
+                                LEFT JOIN ClassesTaken_Req ctr 
+                                  ON r.Code = ctr.Code 
+                                  AND r.Major_Minor = ctr.Major_Minor 
+                                LEFT JOIN Student_ClassesTaken sct 
+                                  ON ctr.Course_ID = sct.Course_ID 
+                                  AND sct.Username = 'nswims' 
+                                WHERE ct.Code_CT IS NULL 
+                                  AND sct.Username IS NULL
+                                AND r.Major_Minor = 'CS Major'
+                                AND r.Optional = 0">
+            </asp:SqlDataSource>
 
+            <asp:GridView ID="gvOptionalPersonalizedPlan" runat="server" DataSourceID="sdsOptionalPersonalizedPlan"></asp:GridView>
+
+            <asp:SqlDataSource ID="sdsOptionalPersonalizedPlan" runat="server" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' 
+                SelectCommand="SELECT r.Code, r.Descrip, r.Credits
+                                FROM Requirements r 
+                                LEFT JOIN (SELECT DISTINCT Code_CT FROM ClassesTaken) ct 
+                                  ON r.Code = ct.Code_CT 
+                                LEFT JOIN ClassesTaken_Req ctr 
+                                  ON r.Code = ctr.Code 
+                                  AND r.Major_Minor = ctr.Major_Minor 
+                                LEFT JOIN Student_ClassesTaken sct 
+                                  ON ctr.Course_ID = sct.Course_ID 
+                                  AND sct.Username = 'nswims' 
+                                WHERE ct.Code_CT IS NULL 
+                                  AND sct.Username IS NULL
+                                AND r.Major_Minor = 'CS Major'
+                                AND r.Optional = 1">
+            </asp:SqlDataSource>
         </div>
       
     </form>

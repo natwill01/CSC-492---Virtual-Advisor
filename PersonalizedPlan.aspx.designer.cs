@@ -24,30 +24,39 @@ namespace Virtual_Advisor
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// DDLPP_Major control.
+        /// gvRequiredPersonalizedPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLPP_Major;
+        protected global::System.Web.UI.WebControls.GridView gvRequiredPersonalizedPlan;
 
         /// <summary>
-        /// DDLPP_Minor control.
+        /// sdsRequiredPersonalizedPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLPP_Minor;
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsRequiredPersonalizedPlan;
 
         /// <summary>
-        /// GVPP control.
+        /// gvOptionalPersonalizedPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVPP;
+        protected global::System.Web.UI.WebControls.GridView gvOptionalPersonalizedPlan;
+
+        /// <summary>
+        /// sdsOptionalPersonalizedPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsOptionalPersonalizedPlan;
     }
 }
