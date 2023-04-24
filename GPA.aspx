@@ -4,12 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Virtual Advisor - GPA Calculator</title>
+    <link rel="stylesheet" href="Style.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <div class="homepageLogo"></div>
+        <div class="gradient"></div>
+
+        <ul class="homepageNav">
+            <li>
+                <a href="Default.aspx">Homepage</a>
+            </li>
+        </ul>
     </form>
 </body>
 </html>
