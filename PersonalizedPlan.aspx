@@ -8,14 +8,17 @@
         <link rel="stylesheet" href="Style.css" />
     </head>
 
-    <body>
-         <form id="form1" runat="server">
+<body>
+    <form id="form1" runat="server">
          <div class="homepageLogo"></div>
          <div class="gradient"></div>
          
          <ul class="homepageNav">
+             <li>
+                 <a href="UpdateInfo.aspx">Update Your Information</a>
+             </li>
             <li>
-                    <a href="Default.aspx">Homepage</a>
+                <a href="Default.aspx">Homepage</a>
             </li>
          </ul>
 
@@ -24,12 +27,8 @@
             <asp:DropDownList ID="DDLPP_Minor" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="DDLPP_Minor_SelectedIndexChanged"></asp:DropDownList>
             <asp:GridView ID="GVPP" runat="server"></asp:GridView>
 
-
-
-
-
         </div>
       
-         </form>
-    </body>
+    </form>
+</body>
 </html>

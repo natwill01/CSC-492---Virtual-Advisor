@@ -10,16 +10,10 @@
     <link rel="stylesheet" href="Style.css" />
     
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 
-    <script type="text/javascript">
-        $(function() {
-            // Trigger the SelectedIndexChanged event when the user selects an item from the drop-down list
-            $("#<%=ddlMajor.ClientID%>").change(function() {
-                __doPostBack("<%=ddlMajor.UniqueID%>", "");
-            });
-        });
-    </script>
 </head>
+
 <body>
     <form id="form1" runat="server">
         <div class="homepageLogo"></div>
@@ -29,62 +23,69 @@
                 <a href="Default.aspx">Homepage</a>
             </li>
         </ul>
-
-        <div class="accordion">
-            <div class="accordion-row">
-
-
-
-                <div class="accordion-tab" id="major-tab">
-              <div class="accordion-tab-header">Majors</div>
-              <div class="accordion-tab-content">
-                <div>
-                  <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
-                </div>
-                <div>
-                  <asp:GridView ID="gvMajorClassesTaken" runat="server"></asp:GridView>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-tab" id="minor-tab">
-              <div class="accordion-tab-header">Minors</div>
-              <div class="accordion-tab-content">
-                <div>
-                  <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
-                </div>
-                <div>
-                  <asp:GridView ID="gvMinorClassesTaken" runat="server"></asp:GridView>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-content">
-            <div id="major-content">
-              <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
-              <asp:GridView ID="gvMajorClassesTaken" runat="server"></asp:GridView>
-            </div>
-            <div id="minor-content">
-              <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged"></asp:DropDownList>
-              <asp:GridView ID="gvMinorClassesTaken" runat="server"></asp:GridView>
-            </div>
-          </div>
+            
+        <div class="selectClasses">
+            <asp:RadioButtonList ID="rbTabs" runat="server" OnSelectedIndexChanged="rbTabs_SelectedIndexChanged" AutoPostBack="True">
+                <asp:ListItem Value="1">Select Classes for Your Major(s)</asp:ListItem>
+                <asp:ListItem Value="2">Select Classes for Your Minor(s)</asp:ListItem>
+            </asp:RadioButtonList>
         </div>
 
+        <div>
+            <asp:DropDownList ID="ddlMajor" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMajor_SelectedIndexChanged" AppendDataBoundItems="True" Visible="False"></asp:DropDownList>
+            <asp:GridView ID="gvMajorClassesTaken" runat="server" DataSourceID="sdsMajorClassesTaken" Visible="False" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="cbMajorSelected" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code" />
+                    <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits" />
+                    <asp:BoundField DataField="Descrip" HeaderText="Descrip" SortExpression="Descrip" />
+                    <asp:TemplateField HeaderText="Grade">
+                        <ItemTemplate>
+                            <asp:TextBox ID="txtMajorGrade" runat="server"></asp:TextBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="sdsMajorClassesTaken" runat="server" ConnectionString="<%$ ConnectionStrings:VirtualAdvisorConnectionString %>" SelectCommand="SELECT [Code], [Credits], [Descrip] FROM [Requirements] WHERE ([Major_Minor] LIKE '%' + @Major_Minor + '%')">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddlMajor" Name="Major_Minor" PropertyName="SelectedValue" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:Button ID="btnMajorAddClasses" runat="server" Text="Add Classes" Visible="False" OnClick="btnMajorAddClasses_Click" />
+        </div>
+            
+        <div>
+            <asp:DropDownList ID="ddlMinor" runat="server" AutoPostBack="True" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlMinor_SelectedIndexChanged" Visible="False"></asp:DropDownList>
+            <asp:GridView ID="gvMinorClassesTaken" runat="server" AutoGenerateColumns="False" DataSourceID="sdsMinorClassesTaken" Visible="False">
+                <Columns>
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="cbMinorSelected" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code"></asp:BoundField>
+                    <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits"></asp:BoundField>
+                    <asp:BoundField DataField="Descrip" HeaderText="Descrip" SortExpression="Descrip"></asp:BoundField>
+                    <asp:TemplateField HeaderText="Grade">
+                        <ItemTemplate>
+                            <asp:TextBox ID="txtMinorGrade" runat="server"></asp:TextBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource runat="server" ID="sdsMinorClassesTaken" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' SelectCommand="SELECT [Code], [Credits], [Descrip] FROM [Requirements] WHERE ([Major_Minor] LIKE '%' + @Major_Minor + '%')">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddlMinor" PropertyName="SelectedValue" Name="Major_Minor" Type="String"></asp:ControlParameter>
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:Button ID="btnMinorAddClasses" runat="server" Text="Add Classes" OnClick="btnMinorAddClasses_Click" Visible="False" />
+        </div>
 
-
-
-        <script type="text/javascript">
-            const tabs = document.querySelectorAll('.accordion-tab-header');
-            const content = document.querySelectorAll('.accordion-tab-content');
-            tabs.forEach((tab, index) => {
-                tab.addEventListener('click', () => {
-                    content.forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    content[index].classList.add('active');
-                });
-            });
-        </script>
+        <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
 
     </form>
 </body>

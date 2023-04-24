@@ -63,10 +63,7 @@ namespace Virtual_Advisor
 
         }
 
-        private string getConnectionString()
-        {
-            return ConfigurationManager.ConnectionStrings["VirtualAdvisorConnectionString"].ConnectionString;
-        }
+   
 
         protected void DDLPP_Major_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,7 +81,7 @@ namespace Virtual_Advisor
             cmd1 = new SqlCommand();
             cmd1.Connection = conn1;
             cmd1.CommandType = CommandType.Text;
-            cmd1.CommandText = "SELECT Code, Credits, Descrip FROM [Requirements] JOIN ClassesTaken_Req on (Code, Mojor_Minor) JOIN ClassesTaken on (Course_ID) WHERE (Code != Code_CT) && ( ";
+            cmd1.CommandText = "SELECT Code, Credits, Descrip FROM [Requirements]";
             cmd1.Parameters.AddWithValue("@Major_Minor", major);
             conn1.Open();
 
@@ -106,5 +103,10 @@ namespace Virtual_Advisor
 
 
         }
+        private string getConnectionString()
+        {
+            return ConfigurationManager.ConnectionStrings["VirtualAdvisorConnectionString"].ConnectionString;
+        }
+
     }
-    }
+}
