@@ -36,7 +36,6 @@ namespace Virtual_Advisor
             }
             else
             {
-                username = getSessionUsername();
                 if (!IsPostBack)
                 {
                     ddlMajor.Items.Insert(0, new ListItem("Select Major", "-1"));
@@ -119,88 +118,59 @@ namespace Virtual_Advisor
 
         protected void btnMajorAddClasses_Click(object sender, EventArgs e)
         {
-            foreach(GridViewRow row in gvMajorClassesTaken.Rows)
+            using (SqlConnection conn = new SqlConnection(getConnectionString()))
             {
-                CheckBox cb = (CheckBox)row.FindControl("cbMajorSelected");
-                if (cb.Checked)
+                conn.Open();
+                using (SqlTransaction tran = conn.BeginTransaction())
                 {
-                    code = row.Cells[1].Text;
-                    grade = row.Cells[4].Text;
-                }
-            }
+                    try
+                    {
+                        foreach (GridViewRow row in gvMajorClassesTaken.Rows)
+                        {
+                            CheckBox cb = (CheckBox)row.FindControl("cbMajorSelected");
+                            if (cb.Checked)
+                            {                          
+                                code = row.Cells[1].Text;
+                                grade = row.Cells[4].Text;
+                                major_minor = ddlMajor.SelectedValue;
+                                username = getSessionUsername();
 
-            conn = new SqlConnection(getConnectionString());
-            cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.Text;
-            
-            cmd.CommandText = "INSERT INTO ClassesTaken VALUES (@CourseCode, @Grade)";
-            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
-            cmd.Parameters.Add("@Grade", SqlDbType.VarChar, 2).Value = grade;
+                                // Insert into ClassesTaken table
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO ClassesTaken VALUES (@CourseCode, @Grade)", conn, tran))
+                                {
+                                    cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+                                    cmd.Parameters.Add("@Grade", SqlDbType.VarChar, 2).Value = grade;
+                                    cmd.ExecuteNonQuery();
+                                }
 
-            conn.Open();
-            try
-            {
-                numRowsAffected = cmd.ExecuteNonQuery();
-                if (numRowsAffected == 1)
-                {
-                    lblStatus.Text = "Thank you for adding your classes!";
-                }
-                else
-                {
-                    lblStatus.Text = "Classes Not Added.";
-                }
-            }
-            catch
-            {
-                lblStatus.Text = "Classes not added. These classe(s) are already entered.";
-            }
-            conn.Close();
+                                // Insert into ClassesTaken_Req table
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO ClassesTaken_Req VALUES (@Major, @CourseCode)", conn, tran))
+                                {
+                                    cmd.Parameters.Add("@Major", SqlDbType.VarChar, 50).Value = major_minor;
+                                    cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+                                    cmd.ExecuteNonQuery();
+                                }
 
-            cmd.CommandText = "INSERT INTO ClassesTaken_Req VALUES (@Major, @CourseCode)";
-            cmd.Parameters.Add("@Major", SqlDbType.VarChar, 50).Value = major_minor;
-            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+                                // Insert into Student_ClassesTaken table
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO Student_ClassesTaken VALUES (@Username)", conn, tran))
+                                {
+                                    cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
 
-            conn.Open();
-            try
-            {
-                numRowsAffected = cmd.ExecuteNonQuery();
-                if (numRowsAffected == 1)
-                {
-                    lblStatus.Text = "Thank you for adding your classes!";
+                        tran.Commit();
+                        lblStatus.Text = "Thank you for adding your classes!";
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        lblStatus.Text = "Classes not added. An error occurred: " + ex.Message;
+                    }
                 }
-                else
-                {
-                    lblStatus.Text = "Classes Not Added.";
-                }
-            }
-            catch
-            {
-                lblStatus.Text = "Classes not added. These classes are already entered.";
-            }
-            conn.Close();
-
-            cmd.CommandText = "INSERT INTO Student_ClassesTaken VALUES (@Username)";
-            cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
-
-            conn.Open();
-            try
-            {
-                numRowsAffected = cmd.ExecuteNonQuery();
-                if (numRowsAffected == 1)
-                {
-                    lblStatus.Text = "Thank you for adding your classes!";
-                }
-                else
-                {
-                    lblStatus.Text = "Classes Not Added.";
-                }
-            }
-            catch
-            {
-                lblStatus.Text = "Classes not added. These classes are already entered.";
-            }
-            conn.Close();
+                conn.Close();
+            }         
         }
 
         protected void btnMinorAddClasses_Click(object sender, EventArgs e)
