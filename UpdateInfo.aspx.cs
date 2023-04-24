@@ -16,5 +16,14 @@ namespace Virtual_Advisor
                 Response.Redirect("Default.aspx");
             }
         }
+
+        protected void gvUpdateGrade_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            TextBox txtGrade = (TextBox)gvUpdateGrade.Rows[e.RowIndex].FindControl("gvUpdateGrade_Grade_" + e.RowIndex);
+            string newGrade = txtGrade.Text;
+
+            SqlDataSource sdsGradeUpdate = sender as SqlDataSource;
+            sdsGradeUpdate.UpdateParameters["Grade"].DefaultValue = newGrade;
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace Virtual_Advisor
 
                     Session["Password"] = password;
 
-                    Response.Redirect("ClassesTaken.aspx");
+                    Response.Redirect("PersonalizedPlan.aspx");
                 }
                 else
                 {
