@@ -131,7 +131,10 @@ namespace Virtual_Advisor
                             if (cb.Checked)
                             {                          
                                 code = row.Cells[1].Text;
-                                grade = row.Cells[4].Text;
+                                
+                                TextBox tbGrade = (TextBox)row.FindControl("txtMajorGrade");
+                                grade = tbGrade.Text;
+
                                 major_minor = ddlMajor.SelectedValue;
                                 username = getSessionUsername();
 
