@@ -21,6 +21,19 @@
         </h1>
         <br /><br /><br /><br /><br /><br /><br />
         <h3>
+            Update - 04/24/2023
+        </h3>
+        <pre>
+        Hello!
+
+        We have been moving through all of the major requirements quickly and with just a few days
+        till the due date we have been working really hard to wrap it up and have it all finished for everyone 
+        to see on Wednesday 4/26. All of the login and signup features are working, the next step we are working
+        on finalizing is the GPA calculator and the Admin page. 
+
+        Dont forget to come see our presentation on Wednesday!!
+        </pre>
+        <h3>
             Update - 04/03/2023
         </h3>
         <pre>
