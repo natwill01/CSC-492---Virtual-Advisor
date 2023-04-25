@@ -186,6 +186,7 @@ body {
     display: flex;
     justify-content: center;
     appearance: none;
+    -webkit-appearance: none;
     cursor: pointer;
     border-radius: 6px;
     padding: 6px 10px;
@@ -195,6 +196,9 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     outline: none;
     border: none;
+    background-image: url('dropdown-arrow.png'); /* Adds custom arrow */
+    background-repeat: no-repeat;
+    background-position: right center;
 }
 
 .ddlCustomization::before{

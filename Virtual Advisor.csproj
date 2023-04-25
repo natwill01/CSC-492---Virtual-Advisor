@@ -74,6 +74,7 @@
     <Content Include="Default.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="GPA.aspx" />
+    <Content Include="Images\ddArrow.png" />
     <Content Include="Images\mountunionlogo-removebg-preview.png" />
     <Content Include="Login.aspx" />
     <Content Include="PersonalizedPlan.aspx" />
