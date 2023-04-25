@@ -19,17 +19,46 @@
                 </li>
             </ul>
 
-            <div>
-                <asp:GridView ID="gvPlan" runat="server" AutoGenerateColumns="False" DataKeyNames="Major_Minor,Code" DataSourceID="sdsVirtualAdvisor">
-                    <Columns>
-                        <asp:BoundField DataField="Code" HeaderText="Code" ReadOnly="True" SortExpression="Code"></asp:BoundField>
-                        <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits"></asp:BoundField>
-                        <asp:BoundField DataField="Descrip" HeaderText="Descrip" SortExpression="Descrip"></asp:BoundField>
-                        <asp:BoundField DataField="Prereq" HeaderText="Prereq" SortExpression="Prereq"></asp:BoundField>
-                    </Columns>
-                </asp:GridView>
-                <asp:SqlDataSource runat="server" ID="sdsVirtualAdvisor" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' SelectCommand="SELECT * FROM [Requirements] ORDER BY [Code]"></asp:SqlDataSource>
-            </div>
+            <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="sdsPlan" DataTextField="Major_Minor" DataValueField="Major_Minor" AppendDataBoundItems="True"></asp:DropDownList>
+
+            <asp:SqlDataSource runat="server" ID="sdsPlan" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' 
+                SelectCommand="SELECT [Major_Minor]
+                                FROM (
+                                  SELECT DISTINCT [Major_Minor]
+                                  FROM [Requirements]
+                                ) AS subquery
+                                WHERE [Major_Minor] LIKE '%Major%'
+                                ORDER BY
+                                  [Major_Minor]
+
+                                UNION
+
+                                SELECT '---------------'
+
+                                UNION
+
+                                SELECT [Major_Minor]
+                                FROM (
+                                  SELECT DISTINCT [Major_Minor]
+                                  FROM [Requirements]
+                                ) AS subquery
+                                WHERE [Major_Minor] LIKE '%Minor%'
+                                ORDER BY
+                                  [Major_Minor]"></asp:SqlDataSource>
+            
+            <asp:GridView ID="gvPlan" runat="server" AutoGenerateColumns="False" DataSourceID="sdsVirtualAdvisor">
+                <Columns>
+                    <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code"></asp:BoundField>
+                    <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits"></asp:BoundField>
+                    <asp:BoundField DataField="Descrip" HeaderText="Descrip" SortExpression="Descrip"></asp:BoundField>
+                    <asp:BoundField DataField="Prereq" HeaderText="Prereq" SortExpression="Prereq"></asp:BoundField>
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource runat="server" ID="sdsVirtualAdvisor" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' SelectCommand="SELECT [Code], [Credits], [Descrip], [Prereq] FROM [Requirements] WHERE ([Major_Minor] = @Major_Minor)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddlPlan" PropertyName="SelectedValue" Name="Major_Minor" Type="String"></asp:ControlParameter>
+                </SelectParameters>
+            </asp:SqlDataSource>
 
         </form>
     </body>

@@ -22,8 +22,8 @@
             </li>
          </ul>
 
-        <asp:DropDownList ID="ddlShowMajors" runat="server" OnSelectedIndexChanged="ddlShowMajors_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-        <asp:DropDownList ID="ddlShowMinors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlShowMinors_SelectedIndexChanged"></asp:DropDownList>
+        <asp:DropDownList ID="ddlShowMajors" runat="server" OnSelectedIndexChanged="ddlShowMajors_SelectedIndexChanged" AutoPostBack="True" AppendDataBoundItems="True"></asp:DropDownList>
+        <asp:DropDownList ID="ddlShowMinors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlShowMinors_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
 
         <asp:GridView ID="gvMajorRequiredPersonalizedPlan" runat="server" DataSourceID="sdsRequiredPersonalizedPlan" Visible="False" AutoGenerateColumns="False">
             <Columns>
