@@ -19,32 +19,30 @@
                 </li>
             </ul>
 
-            <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="sdsPlan" DataTextField="Major_Minor" DataValueField="Major_Minor" AppendDataBoundItems="True"></asp:DropDownList>
+            <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="sdsPlan" DataTextField="Major_Minor" DataValueField="Major_Minor" AppendDataBoundItems="True" AutoPostBack="True"></asp:DropDownList>
 
             <asp:SqlDataSource runat="server" ID="sdsPlan" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' 
-                SelectCommand="SELECT [Major_Minor]
+                SelectCommand="SELECT [Major_Minor], 1 AS sortOrder
                                 FROM (
                                   SELECT DISTINCT [Major_Minor]
                                   FROM [Requirements]
                                 ) AS subquery
                                 WHERE [Major_Minor] LIKE '%Major%'
-                                ORDER BY
-                                  [Major_Minor]
 
                                 UNION
 
-                                SELECT '---------------'
+                                SELECT '-----------------------------------------------------------', 2 AS sortOrder
 
                                 UNION
 
-                                SELECT [Major_Minor]
+                                SELECT [Major_Minor], 3 AS sortOrder
                                 FROM (
                                   SELECT DISTINCT [Major_Minor]
                                   FROM [Requirements]
                                 ) AS subquery
                                 WHERE [Major_Minor] LIKE '%Minor%'
-                                ORDER BY
-                                  [Major_Minor]"></asp:SqlDataSource>
+
+                                ORDER BY sortOrder, [Major_Minor]"></asp:SqlDataSource>
             
             <asp:GridView ID="gvPlan" runat="server" AutoGenerateColumns="False" DataSourceID="sdsVirtualAdvisor">
                 <Columns>
