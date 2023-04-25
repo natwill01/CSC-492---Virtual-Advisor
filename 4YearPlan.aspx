@@ -19,7 +19,13 @@
                 </li>
             </ul>
 
-            <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="sdsPlan" DataTextField="Major_Minor" DataValueField="Major_Minor" AppendDataBoundItems="True" AutoPostBack="True"></asp:DropDownList>
+            <div class="ddlContainer">
+                <br />
+                <h3>Select the 4-Year Plan you Would Like to View!</h3>
+                <br /><br />
+                <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="sdsPlan" DataTextField="Major_Minor" DataValueField="Major_Minor" AppendDataBoundItems="True" AutoPostBack="True" CssClass="ddlCustomization"></asp:DropDownList>
+                <br /><br />
+            </div>
 
             <asp:SqlDataSource runat="server" ID="sdsPlan" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' 
                 SelectCommand="SELECT [Major_Minor], 1 AS sortOrder
