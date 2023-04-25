@@ -6,6 +6,7 @@
     <head runat="server">
         <title>Virtual Advisory - 4 Year Plan</title>
         <link rel="stylesheet" href="Style.css" />
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
 
     <body>
@@ -26,6 +27,15 @@
                 <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="sdsPlan" DataTextField="Major_Minor" DataValueField="Major_Minor" AppendDataBoundItems="True" AutoPostBack="True" CssClass="ddlCustomization"></asp:DropDownList>
                 <br /><br />
             </div>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('.ddlCustomization').click(function () {
+                        $(this).toggleClass('rotate');
+                        $(this).toggleClass('arrow-rotate');
+                    });
+                });
+            </script>
 
             <asp:SqlDataSource runat="server" ID="sdsPlan" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' 
                 SelectCommand="SELECT [Major_Minor], 1 AS sortOrder

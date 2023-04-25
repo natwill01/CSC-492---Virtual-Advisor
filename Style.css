@@ -196,14 +196,15 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     outline: none;
     border: none;
-    background-image: url('dropdown-arrow.png'); /* Adds custom arrow */
+    background-image: url('Images/ddArrow.png');
+    background-size: 13px 8px;
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: 96% center;
 }
 
-.ddlCustomization::before{
-
-}
+    .ddlCustomization.arrow-rotate {
+        background-image: url('Images/ddArrowRotated.png');
+    }
 
 /****************************************************************/
 
