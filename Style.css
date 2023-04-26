@@ -17,19 +17,21 @@ body {
     align-items: center;
     text-align: center;
     width: contain;
-    color: black;
 }
 
     .homepageText h1 {
         font-size: 60px;
         font-family: Arial;
+        transform: scale(1);
         transition: all .35s ease-in-out;
-    }
-
-    .homepageText h1:hover {
-        transform: scale(1.1);
         cursor: default;
     }
+
+        .homepageText h1:hover {
+            transform: scale(1.1);
+            transition: all .35s ease-in-out;
+            cursor: default;
+        }
 
 /****************************************************************/
 
@@ -59,11 +61,14 @@ body {
     .separatedView h3 {
         font-family: Arial;
         font-size: 22px;
+        transform: scale(1);
+        transition: all .25s ease-in-out;
+        cursor: default;
     }
 
         .separatedView h3:hover {
             transform: scale(1.05);
-            transition: all .2s ease-in-out;
+            transition: all .25s ease-in-out;
         }
 
     .separatedView p {
@@ -175,11 +180,14 @@ body {
         align-content: center;
         font-family: Arial;
         font-size: 20px;
+        transform: scale(1);
+        transition: all .25s ease-in-out;
+        cursor: default;
     }
 
         .ddlContainer h3:hover {
             transform: scale(1.05);
-            transition: all .2s ease-in-out;
+            transition: all .25s ease-in-out;
             cursor: default;
         }
 
@@ -242,6 +250,51 @@ body {
 
 /****************************************************************/
 
+.centeredText {
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    width: fit-content;
+    font-family: Arial;
+    font-size: 50px;
+    transform: scale(1);
+    transition: all .35s ease-in-out;
+    cursor: default;
+}
+
+    .centeredText:hover {
+        transform: scale(1.1);
+        transition: all .35s ease-in-out;
+        cursor: default;
+    }
+
+/****************************************************************/
+
+.blog{
+    font-family: Arial;
+}
+
+    .blog h3 {
+        width: fit-content;
+        margin-left: 40px;
+        font-size: 24px;
+        transform: scale(1);
+        transition: all .25s ease-in-out;
+        cursor: default;
+    }
+
+        .blog h3:hover {
+            transform: scale(1.05);
+            transition: all .25s ease-in-out;
+            cursor: default;
+        }
+
+    .blog p {
+        margin-left: 80px;
+    }
+
+/****************************************************************/
+
 .loginWrapper {
     margin: 100px auto;
     max-width: 700px;
@@ -258,6 +311,9 @@ body {
         align-content: center;
         font-family: Arial;
         font-size: 20px;
+        transform: scale(1);
+        transition: all .25s ease-in-out;
+        cursor: default;
     }
 
         .loginWrapper h3:hover {
