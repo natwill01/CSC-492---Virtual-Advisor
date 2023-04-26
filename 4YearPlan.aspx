@@ -58,22 +58,24 @@
                                 ) AS subquery
                                 WHERE [Major_Minor] LIKE '%Minor%'
 
-                                ORDER BY sortOrder, [Major_Minor]"></asp:SqlDataSource>
-            
-            <asp:GridView ID="gvPlan" runat="server" AutoGenerateColumns="False" DataSourceID="sdsVirtualAdvisor">
-                <Columns>
-                    <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code"></asp:BoundField>
-                    <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits"></asp:BoundField>
-                    <asp:BoundField DataField="Descrip" HeaderText="Descrip" SortExpression="Descrip"></asp:BoundField>
-                    <asp:BoundField DataField="Prereq" HeaderText="Prereq" SortExpression="Prereq"></asp:BoundField>
-                </Columns>
-            </asp:GridView>
-            <asp:SqlDataSource runat="server" ID="sdsVirtualAdvisor" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' SelectCommand="SELECT [Code], [Credits], [Descrip], [Prereq] FROM [Requirements] WHERE ([Major_Minor] = @Major_Minor)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlPlan" PropertyName="SelectedValue" Name="Major_Minor" Type="String"></asp:ControlParameter>
-                </SelectParameters>
+                                ORDER BY sortOrder, [Major_Minor]">
             </asp:SqlDataSource>
-
+            
+            <div class="grid">
+                <asp:GridView ID="gvPlan" runat="server" AutoGenerateColumns="False" DataSourceID="sdsVirtualAdvisor">
+                    <Columns>
+                        <asp:BoundField DataField="Code" HeaderText="Course Code" SortExpression="Code"></asp:BoundField>
+                        <asp:BoundField DataField="Credits" HeaderText="Credit Hours" SortExpression="Credits"></asp:BoundField>
+                        <asp:BoundField DataField="Descrip" HeaderText="Course Description" SortExpression="Descrip"></asp:BoundField>
+                        <asp:BoundField DataField="Prereq" HeaderText="Prerequisite(s)" SortExpression="Prereq"></asp:BoundField>
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource runat="server" ID="sdsVirtualAdvisor" ConnectionString='<%$ ConnectionStrings:VirtualAdvisorConnectionString %>' SelectCommand="SELECT [Code], [Credits], [Descrip], [Prereq] FROM [Requirements] WHERE ([Major_Minor] = @Major_Minor)">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="ddlPlan" PropertyName="SelectedValue" Name="Major_Minor" Type="String"></asp:ControlParameter>
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </div>
         </form>
     </body>
 
