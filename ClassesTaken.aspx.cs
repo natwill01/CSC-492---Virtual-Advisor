@@ -76,12 +76,24 @@ namespace Virtual_Advisor
 
         protected void ddlMajor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(ddlMajor.SelectedValue.Equals("Select Major"))
+            {
+                btnMajorAddClasses.Visible = false;
+            }
             major_minor = ddlMajor.SelectedValue;
+            gvMajorClassesTaken.Visible = true;
+            btnMajorAddClasses.Visible = true;
+            gvMinorClassesTaken.Visible = false;
+            btnMinorAddClasses.Visible = false;
         }
 
         protected void ddlMinor_SelectedIndexChanged(object sender, EventArgs e)
         {
             major_minor = ddlMinor.SelectedValue;
+            gvMinorClassesTaken.Visible = true;
+            btnMinorAddClasses.Visible = true;
+            gvMajorClassesTaken.Visible = false;
+            btnMajorAddClasses.Visible = false;
         }
 
         protected void rbTabs_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,20 +101,16 @@ namespace Virtual_Advisor
             if (rbTabs.SelectedItem.Text == "Select Classes for Your Major(s)")
             {
                 ddlMajor.Visible = true;
-                gvMajorClassesTaken.Visible = true;
-                btnMajorAddClasses.Visible = true;
+                btnMajorAddClasses.Visible = false;
                 ddlMinor.Visible = false;
-                gvMinorClassesTaken.Visible = false;
-                btnMinorAddClasses.Visible = false;
+                
             }
             else if (rbTabs.SelectedItem.Text == "Select Classes for Your Minor(s)")
             {
                 ddlMinor.Visible = true;
-                gvMinorClassesTaken.Visible = true;
-                btnMinorAddClasses.Visible = true;
+                btnMinorAddClasses.Visible = false;
                 ddlMajor.Visible = false;
-                gvMajorClassesTaken.Visible = false;
-                btnMajorAddClasses.Visible = false;
+                
             }
         }
 
@@ -129,9 +137,9 @@ namespace Virtual_Advisor
                         {
                             CheckBox cb = (CheckBox)row.FindControl("cbMajorSelected");
                             if (cb.Checked)
-                            {                          
+                            {
                                 code = row.Cells[1].Text;
-                                
+
                                 TextBox tbGrade = (TextBox)row.FindControl("txtMajorGrade");
                                 grade = tbGrade.Text;
 
@@ -173,93 +181,67 @@ namespace Virtual_Advisor
                     }
                 }
                 conn.Close();
-            }         
+            }
         }
 
         protected void btnMinorAddClasses_Click(object sender, EventArgs e)
         {
-            foreach (GridViewRow row in gvMinorClassesTaken.Rows)
+            using (SqlConnection conn = new SqlConnection(getConnectionString()))
             {
-                CheckBox cb = (CheckBox)row.FindControl("cbMinorSelected");
-                if (cb.Checked)
+                conn.Open();
+                using (SqlTransaction tran = conn.BeginTransaction())
                 {
-                    code = row.Cells[1].Text;
-                    grade = row.Cells[4].Text;
-                }
-            }
+                    try
+                    {
+                        foreach (GridViewRow row in gvMinorClassesTaken.Rows)
+                        {
+                            CheckBox cb = (CheckBox)row.FindControl("cbMinorSelected");
+                            if (cb.Checked)
+                            {
+                                code = row.Cells[1].Text;
 
-            conn = new SqlConnection(getConnectionString());
-            cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.Text;
+                                TextBox tbGrade = (TextBox)row.FindControl("txtMinorGrade");
+                                grade = tbGrade.Text;
 
-            cmd.CommandText = "INSERT INTO ClassesTaken VALUES (@CourseCode, @Grade)";
-            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
-            cmd.Parameters.AddWithValue("@Grade", grade);
+                                major_minor = ddlMinor.SelectedValue;
+                                username = getSessionUsername();
 
-            conn.Open();
-            try
-            {
-                numRowsAffected = cmd.ExecuteNonQuery();
-                if (numRowsAffected == 1)
-                {
-                    lblStatus.Text = "Thank you for adding your classes!";
-                }
-                else
-                {
-                    lblStatus.Text = "Classes Not Added.";
-                }
-            }
-            catch
-            {
-                lblStatus.Text = "Classes not added. These classes are already entered.";
-            }
-            conn.Close();
+                                // Insert into ClassesTaken table
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO ClassesTaken VALUES (@CourseCode, @Grade)", conn, tran))
+                                {
+                                    cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+                                    cmd.Parameters.Add("@Grade", SqlDbType.VarChar, 2).Value = grade;
+                                    cmd.ExecuteNonQuery();
+                                }
 
-            cmd.CommandText = "INSERT INTO ClassesTaken_Req VALUES (@Major, @CourseCode)";
-            cmd.Parameters.Add("@Major", SqlDbType.VarChar, 50).Value = major_minor;
-            cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+                                // Insert into ClassesTaken_Req table
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO ClassesTaken_Req VALUES (@Minor, @CourseCode)", conn, tran))
+                                {
+                                    cmd.Parameters.Add("@Minor", SqlDbType.VarChar, 50).Value = major_minor;
+                                    cmd.Parameters.Add("@CourseCode", SqlDbType.VarChar, 7).Value = code;
+                                    cmd.ExecuteNonQuery();
+                                }
 
-            conn.Open();
-            try
-            {
-                numRowsAffected = cmd.ExecuteNonQuery();
-                if (numRowsAffected == 1)
-                {
-                    lblStatus.Text = "Thank you for adding your classes!";
-                }
-                else
-                {
-                    lblStatus.Text = "Classes Not Added.";
-                }
-            }
-            catch
-            {
-                lblStatus.Text = "Classes not added. These classes are already entered.";
-            }
-            conn.Close();
+                                // Insert into Student_ClassesTaken table
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO Student_ClassesTaken VALUES (@Username)", conn, tran))
+                                {
+                                    cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
 
-            cmd.CommandText = "INSERT INTO Student_ClassesTaken VALUES (@Username)";
-            cmd.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value = username;
-
-            conn.Open();
-            try
-            {
-                numRowsAffected = cmd.ExecuteNonQuery();
-                if (numRowsAffected == 1)
-                {
-                    lblStatus.Text = "Thank you for adding your classes!";
+                        tran.Commit();
+                        lblStatus.Text = "Thank you for adding your classes!";
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        lblStatus.Text = "Classes not added. An error occurred: " + ex.Message;
+                    }
                 }
-                else
-                {
-                    lblStatus.Text = "Classes Not Added.";
-                }
+                conn.Close();
             }
-            catch
-            {
-                lblStatus.Text = "Classes not added. These classes are already entered.";
-            }
-            conn.Close();
         }
     }
 }

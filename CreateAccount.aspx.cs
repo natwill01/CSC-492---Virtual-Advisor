@@ -62,7 +62,7 @@ namespace Virtual_Advisor
                             Session["Password"] = password;
 
                             lblStatus.ForeColor = System.Drawing.Color.Green;
-                            lblStatus.Text = "Account Created, thanks for joining!\n" +
+                            lblStatus.Text = "Account created, thanks for joining!\n" +
                                 "Please enter your classes to create your personalized plan.";
 
                             txtFirstName.Text = "";
