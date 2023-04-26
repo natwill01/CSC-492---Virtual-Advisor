@@ -18,6 +18,11 @@
                     <a href="Default.aspx">Homepage</a>
                 </li>
             </ul>
+
+        <div class="centeredTextAdmin">
+        <h1>Welcome Admin!</h1>
+        </div>
+
         <div class="grid">         
             <asp:GridView ID="gvUpdatePlan" runat="server" OnRowEditing="gvUpdatePlan_RowEditing" OnRowUpdating="gvUpdatePlan_RowUpdating">
                 <Columns>

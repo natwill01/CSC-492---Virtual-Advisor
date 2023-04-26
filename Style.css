@@ -299,6 +299,24 @@ body {
         cursor: default;
     }
 
+.centeredTextAdmin {
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    width: fit-content;
+    font-family: Arial;
+    font-size: 30px;
+    transform: scale(1);
+    transition: all .35s ease-in-out;
+    cursor: default;
+}
+
+    .centeredTextAdmin:hover {
+        transform: scale(1.1);
+        transition: all .35s ease-in-out;
+        cursor: default;
+    }
+
 /****************************************************************/
 
 .blog{
