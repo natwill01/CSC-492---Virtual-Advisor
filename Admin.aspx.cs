@@ -52,16 +52,21 @@ namespace Virtual_Advisor
 
         protected void gvUpdatePlan_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            //object[] keys = new object[gvUpdatePlan.DataKeyNames.Length];
-            //gvUpdatePlan.DataKeys[e.RowIndex].Values.CopyTo(keys, 0);
-            string majorMinor = e.NewValues["Major_Minor"].ToString();
-            string code = e.NewValues["Code"].ToString();
+            GridViewRow row = gvUpdatePlan.Rows[e.RowIndex];
+
+            string majorMinor = row.Cells[1].Text;
+            string code = row.Cells[2].Text;
             string credits = e.NewValues["Credits"].ToString();
             string optional = e.NewValues["Optional"].ToString();
             string descrip = e.NewValues["Descrip"].ToString();
+            string prereq = "";
             if (e.NewValues.Contains("Prereq") && e.NewValues["Prereq"] != null)
             {
-                string prereq = e.NewValues["Prereq"].ToString();
+                prereq = e.NewValues["Prereq"].ToString();
+            }
+            else
+            {
+                prereq = "";
             }
 
             using (SqlConnection conn = new SqlConnection(getConnectionString()))
@@ -69,21 +74,21 @@ namespace Virtual_Advisor
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE Requirements SET Major_Minor = @MajorMinor, Code = @Code, Credits = @Credits, Optional = @Optional, Descrip = @Descrip, Prereq = @Prereq WHERE Major_Minor = @MajorMinor";
-                cmd.Parameters.AddWithValue("@MajorMinor", majorMinor);
-                cmd.Parameters.AddWithValue("@Code", code);
+                cmd.CommandText = "UPDATE Requirements SET Credits = @Credits, Optional = @Optional, Descrip = @Descrip, Prereq = @Prereq WHERE Major_Minor = @MajorMinor AND Code = @Code";
                 cmd.Parameters.AddWithValue("@Credits", credits);
                 cmd.Parameters.AddWithValue("@Optional", optional);
-                cmd.Parameters.AddWithValue("@Decrip", descrip);
+                cmd.Parameters.AddWithValue("@Descrip", descrip);
                 cmd.Parameters.AddWithValue("@Prereq", prereq);
+                cmd.Parameters.AddWithValue("MajorMinor", majorMinor);
+                cmd.Parameters.AddWithValue("Code", code);
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-            }
 
-            // Rebind the GridView control to the updated data source
-            gvUpdatePlan.EditIndex = -1;
-            BindGridView();
+                // Rebind the GridView control to the updated data source
+                gvUpdatePlan.EditIndex = -1;
+                BindGridView();
+            }
         }
 
         private void BindGridView()
