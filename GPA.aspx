@@ -18,6 +18,9 @@
                 <a href="Default.aspx">Homepage</a>
             </li>
         </ul>
+
+        <asp:Button ID="btnCalcGPA" runat="server" Text="Button" OnClick="btnCalcGPA_Click" />
+
     </form>
 </body>
 </html>
