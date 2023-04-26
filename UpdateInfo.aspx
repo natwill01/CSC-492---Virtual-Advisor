@@ -32,8 +32,12 @@
         </asp:GridView>
 
         <asp:SqlDataSource ID="sdsGradeUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:VirtualAdvisorConnectionString %>" 
-            SelectCommand="SELECT ClassesTaken.Code_CT, ClassesTaken.Grade FROM ClassesTaken INNER JOIN Student_ClassesTaken ON ClassesTaken.Course_ID = Student_ClassesTaken.Course_ID" 
+            SelectCommand="SELECT ClassesTaken.Code_CT, ClassesTaken.Grade FROM ClassesTaken INNER JOIN Student_ClassesTaken ON ClassesTaken.Course_ID = Student_ClassesTaken.Course_ID WHERE Student_ClassesTaken.Username = @Username" 
             UpdateCommand="UPDATE ClassesTaken SET Grade = @Grade FROM ClassesTaken INNER JOIN Student_ClassesTaken ON ClassesTaken.Course_ID = Student_ClassesTaken.Course_ID WHERE Student_ClassesTaken.Username = @Username AND ClassesTaken.Code_CT = CourseCode">
+            <SelectParameters>
+                <asp:SessionParameter SessionField="Username" Name="Username"></asp:SessionParameter>
+            </SelectParameters>
+            
             <UpdateParameters>
                 <asp:ControlParameter ControlID="gvUpdateGrade" Name="Grade" PropertyName="Text" />
                 <asp:SessionParameter Name="Username" SessionField="Username" />

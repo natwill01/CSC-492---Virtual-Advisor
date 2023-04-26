@@ -62,22 +62,27 @@
         </asp:GridView>
         <asp:SqlDataSource ID="sdsMajorClassesTaken" runat="server" ConnectionString="<%$ ConnectionStrings:VirtualAdvisorConnectionString %>"
             SelectCommand="SELECT r.Code, r.Descrip, r.Credits
-                            FROM Requirements r 
-                            LEFT JOIN (
-                                SELECT DISTINCT ct.Code_CT 
-                                FROM ClassesTaken ct 
-                                INNER JOIN Student_ClassesTaken sct ON ct.Course_ID = sct.Course_ID 
-                                WHERE sct.Username = @Username
-                            ) t1 ON r.Code = t1.Code_CT 
-                            LEFT JOIN ClassesTaken_Req ctr 
-                                ON r.Code = ctr.Code 
-                                AND r.Major_Minor = ctr.Major_Minor 
-                            LEFT JOIN Student_ClassesTaken sct 
-                                ON ctr.Course_ID = sct.Course_ID 
-                                AND sct.Username = @Username
-                            WHERE t1.Code_CT IS NULL 
-                                AND sct.Username IS NULL
-                                AND r.Major_Minor = @Major_Minor">
+FROM Requirements r 
+LEFT JOIN (
+    SELECT DISTINCT ct.Code_CT 
+    FROM ClassesTaken ct 
+    INNER JOIN Student_ClassesTaken sct ON ct.Course_ID = sct.Course_ID 
+    WHERE sct.Username = @Username
+) t1 ON r.Code = t1.Code_CT 
+LEFT JOIN ClassesTaken_Req ctr 
+    ON r.Code = ctr.Code 
+    AND r.Major_Minor = ctr.Major_Minor 
+LEFT JOIN (
+    SELECT * 
+    FROM Student_ClassesTaken 
+    WHERE Username = @Username
+) sct 
+    ON ctr.Course_ID = sct.Course_ID 
+WHERE t1.Code_CT IS NULL 
+    AND sct.Course_ID IS NULL
+    AND r.Major_Minor = @Major_Minor
+
+">
             <SelectParameters>
                 <asp:SessionParameter SessionField="Username" Name="Username"></asp:SessionParameter>
                 <asp:ControlParameter ControlID="ddlMajor" Name="Major_Minor" PropertyName="SelectedValue" Type="String" />
