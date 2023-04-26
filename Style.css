@@ -601,6 +601,35 @@ body {
         transform: translateY(4px);
     }
 
+.gridUP {
+    margin: 0 auto;
+    margin-top: 80px;
+    display: grid;
+    justify-content: center;
+    font-family: Arial;
+    font-size: 14px;
+    padding-bottom: 50px;
+}
+
+    .gridUP td {
+        padding: 10px;
+        font-family: Arial;
+    }
+
+    .gridUP tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .gridUP tr:nth-child(odd) {
+        background-color: rgba(102, 51, 102, 0.25);
+    }
+
+    .gridUP th {
+        padding: 10px;
+        font-family: Arial;
+        background-color: rgba(102, 51, 102, 0.5);
+    }
+
 /****************************************************************/
 
 @keyframes pageLoadTransition {

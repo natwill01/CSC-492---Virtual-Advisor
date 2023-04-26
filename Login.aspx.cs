@@ -46,7 +46,16 @@ namespace Virtual_Advisor
                             password = reader.GetString(1);
                             Session["Username"] = username;
                             Session["Password"] = password;
-                            Response.Redirect("PersonalizedPlan.aspx");
+
+                            if ((string)Session["Username"] == "cindricbb")
+                            {
+                                Response.Redirect("Admin.aspx");
+                            }
+                            else
+                            {
+                                Response.Redirect("PersonalizedPlan.aspx");
+                            }
+                            
                         }
                         else
                         {

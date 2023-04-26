@@ -11,10 +11,22 @@ namespace Virtual_Advisor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            string currentUser = getSessionUsername();
+            if(currentUser == "cindricbb")
             {
-                ddlPlan.Items.Insert(0, new ListItem("Select The Plan You Would Like to View", "-1"));
+                Response.Redirect("Admin.aspx");
             }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    ddlPlan.Items.Insert(0, new ListItem("Select The Plan You Would Like to View", "-1"));
+                }
+            }               
+        }
+        private string getSessionUsername()
+        {
+            return (string)Session["Username"];
         }
     }
 }
