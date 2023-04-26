@@ -105,12 +105,10 @@
             </SelectParameters>
         </asp:SqlDataSource>
     </div> 
+        <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
 
         <asp:Button ID="btnMajorAddClasses" runat="server" Text="Add Classes" Visible="False" OnClick="btnMajorAddClasses_Click" />
         <asp:Button ID="btnMinorAddClasses" runat="server" Text="Add Classes" OnClick="btnMinorAddClasses_Click" Visible="False" />
-
-        <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
-
     </form>
 </body>
 </html>

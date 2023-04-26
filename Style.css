@@ -563,13 +563,16 @@ body {
 /****************************************************************/
 
 #btnMajorAddClasses, btnMinorAddClasses {
-    background-color: white;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-color: rgba(102, 51, 102, 0.2);
     border: none;
     color: black;
     padding: 6px 12px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     font-family: Arial;
     font-size: 16px;
     font-weight: 700;
@@ -589,6 +592,26 @@ body {
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
+
+#btnMinorAddClasses {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-color: rgba(102, 51, 102, 0.2);
+    border: none;
+    color: black;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
     #btnMinorAddClasses:hover {
         background-color: rgba(102, 51, 102, 0.6);
