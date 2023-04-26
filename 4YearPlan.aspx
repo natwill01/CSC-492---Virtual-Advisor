@@ -6,6 +6,7 @@
     <head runat="server">
         <title>Virtual Advisory - 4 Year Plan</title>
         <link rel="stylesheet" href="Style.css" />
+        <link rel="shortcut icon" type="x-icon" href="Images/icon.png" />
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
 

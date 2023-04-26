@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Virtual Advisor - GPA Calculator</title>
     <link rel="stylesheet" href="Style.css" />
+    <link rel="shortcut icon" type="x-icon" href="Images/icon.png" />
 </head>
 <body>
     <form id="form1" runat="server">

@@ -61,8 +61,9 @@ namespace Virtual_Advisor
                             Session["Username"] = username;
                             Session["Password"] = password;
 
-                            lblStatus.Text = "Account Created, thanks for joining!";
-                            pnlInformation.Visible = true;
+                            lblStatus.ForeColor = System.Drawing.Color.Green;
+                            lblStatus.Text = "Account Created, thanks for joining!\n" +
+                                "Please enter your classes to create your personalized plan.";
 
                             txtFirstName.Text = "";
                             txtLastName.Text = "";
@@ -72,22 +73,26 @@ namespace Virtual_Advisor
                         }
                         else
                         {
+                            lblStatus.ForeColor = System.Drawing.Color.Red;
                             lblStatus.Text = "Account Not Added.";
                         }
                     }
                     catch
                     {
+                        lblStatus.ForeColor = System.Drawing.Color.Red;
                         lblStatus.Text = "Account not created. This username has been used already.";
                     }
                     conn.Close();
                 }
                 else
                 {
+                    lblStatus.ForeColor = System.Drawing.Color.Red;
                     lblStatus.Text = "Please only enter two numbers representing your graduation year.";
                 }
             }
             else
             {
+                lblStatus.ForeColor = System.Drawing.Color.Red;
                 lblStatus.Text = "Please enter information in all boxes to create an account.";
             }
         }
@@ -95,16 +100,6 @@ namespace Virtual_Advisor
         private string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["VirtualAdvisorConnectionString"].ConnectionString;
-        }
-
-        protected void btnYes_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("ClassesTaken.aspx");
-        }
-
-        protected void btnNo_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("Default.aspx");
         }
     }
 }

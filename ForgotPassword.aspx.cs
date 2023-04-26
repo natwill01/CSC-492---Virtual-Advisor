@@ -35,6 +35,8 @@ namespace Virtual_Advisor
                         Session["Username"] = txtUserName.Text;
                         Session["Password"] = txtPassword.Text;
                         lblStatus.Text = "Password has been updated.";
+
+                        Response.Redirect("Login.aspx");
                     }
                     else
                     {

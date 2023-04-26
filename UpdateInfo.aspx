@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Virtual Advisor - Update Information</title>
     <link rel="stylesheet" href="Style.css" />
+    <link rel="shortcut icon" type="x-icon" href="Images/icon.png" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -13,6 +14,9 @@
         <div class="gradient"></div>
 
         <ul class="homepageNav">
+            <li>
+                <a href="ClassesTaken.aspx">Enter More Classes</a>
+            </li>
             <li>
                 <a href="Default.aspx">Homepage</a>
             </li>

@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Virtual Advisor - Create Account</title>
     <link rel="stylesheet" href="Style.css" />
+    <link rel="shortcut icon" type="x-icon" href="Images/icon.png" />
 </head>
 
 <body>
@@ -14,11 +15,11 @@
             <div class="gradient"></div>
             <ul class="homepageNav">
                 <li>
-                    <a href="Default.aspx">Homepage</a>
-                </li>
-                <li>
                     <a href="ClassesTaken.aspx">Enter Classes</a>
                 </li>
+                <li>
+                    <a href="Default.aspx">Homepage</a>
+                </li>            
             </ul>
 
             <div class="loginWrapper">
@@ -64,7 +65,7 @@
                     <tr><td><br /></td><td><br /></td></tr>
                     <tr>
                         <td>
-                            <asp:Label ID="lblGradYear" runat="server" Text="Grad Year: '"></asp:Label>
+                            <asp:Label ID="lblGradYear" runat="server" Text="Grad Year '(__):"></asp:Label>
                         </td>
                         <td>
                             <asp:TextBox ID="txtGradYear" runat="server"></asp:TextBox>
@@ -74,23 +75,13 @@
                 
                 <div class="centeredButton">
                     <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
-                    <br />
+                    <br /><br />
                     <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
-
-                    <asp:Panel ID="pnlInformation" runat="server" Visible="False">
-                        <p>Would you like to enter your class information for the personalized plan?</p>
-                        <br />
-                        <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" />
-                        &nbsp&nbsp&nbsp&nbsp
-                        <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" />
-                    </asp:Panel>
-
                 </div>
+                
                 <br /><br />
-                <p class="centeredTextNoHover">
-                    <a href="Login.aspx">Back to Login Page</a>
-                </p>
-                <br />
+                <a href="Login.aspx">Back to Login Page</a>
+                <br /><br />
             </div>
 
             

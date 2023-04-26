@@ -8,6 +8,7 @@
     
     <title>Virtual Advisor - Create Account</title>
     <link rel="stylesheet" href="Style.css" />
+    <link rel="shortcut icon" type="x-icon" href="Images/icon.png" />
     
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
