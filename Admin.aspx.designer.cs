@@ -31,14 +31,5 @@ namespace Virtual_Advisor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvUpdatePlan;
-
-        /// <summary>
-        /// sdsUpdatePlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sdsUpdatePlan;
     }
 }
