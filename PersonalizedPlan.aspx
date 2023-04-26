@@ -65,7 +65,8 @@
                 <asp:ControlParameter ControlID="ddlShowMajors" PropertyName="SelectedValue" Name="MajorMinor"></asp:ControlParameter>
             </SelectParameters>
         </asp:SqlDataSource>
-    </div>
+        <br />
+        <br />
         <asp:GridView ID="gvMajorOptionalPersonalizedPlan" runat="server" DataSourceID="sdsOptionalPersonalizedPlan" Visible="False" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code"></asp:BoundField>
@@ -93,7 +94,8 @@
                 <asp:ControlParameter ControlID="ddlShowMajors" PropertyName="SelectedValue" Name="MajorMinor"></asp:ControlParameter>
             </SelectParameters>
         </asp:SqlDataSource>
-        
+    </div> 
+    <div class="gridPP">
         <asp:GridView ID="gvMinorRequiredPersonalizedPlan" runat="server" AutoGenerateColumns="False" DataSourceID="sdsRequiredPP" Visible="False">
             <Columns>
                 <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code"></asp:BoundField>
@@ -143,7 +145,7 @@
                 <asp:ControlParameter ControlID="ddlShowMinors" PropertyName="SelectedValue" Name="MajorMinor"></asp:ControlParameter>
             </SelectParameters>
         </asp:SqlDataSource>
-
+        </div>
     </form>
 </body>
 </html>

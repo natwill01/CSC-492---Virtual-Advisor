@@ -16,7 +16,6 @@ namespace Virtual_Advisor
         private SqlConnection conn;
         private SqlCommand cmd;
         private SqlDataReader reader;
-        private int numRowsAffected;
 
         protected void Page_Load(object sender, EventArgs e)
         {
