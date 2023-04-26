@@ -60,7 +60,7 @@ body {
 
     .separatedView h3 {
         font-family: Arial;
-        font-size: 22px;
+        font-size: 24px;
         transform: scale(1);
         transition: all .25s ease-in-out;
         cursor: default;
@@ -175,6 +175,8 @@ body {
 }
 
     .ddlContainer h3 {
+        margin: 0 auto;
+        width: fit-content;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -296,16 +298,20 @@ body {
 /****************************************************************/
 
 .loginWrapper {
-    margin: 100px auto;
-    max-width: 700px;
-    border: 2px solid black;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    border: none;
     border-radius: 6px;
-    background-color: #787976;
-    justify-content: center;
-    align-content: center;
-    color: white;
+    background-color: rgba(102, 51, 102, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    color: black;
 }
     .loginWrapper h3 {
+        margin: 0 auto;
+        width: fit-content;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -317,9 +323,9 @@ body {
     }
 
         .loginWrapper h3:hover {
-            cursor: default;
             transform: scale(1.05);
             transition: all .25s ease-in-out;
+            cursor: default;
         }
     
     .loginWrapper table {
@@ -330,16 +336,29 @@ body {
     .loginWrapper tr td {
         font-family: Arial;
         font-size: 18px;
+        padding-right: 5px;
+        padding-left: 5px;
+        cursor: default;
     }
 
     .loginWrapper a {
+        width: fit-content;
         margin: 0 auto;
-        align-items: center;
+        display: flex;
         justify-content: center;
+        align-content: center;
         text-align: center;
-        color: white;
+        text-decoration: none;
         font-family: Arial;
+        color: black;
+        transform: scale(1);
+        transition: all .2s ease-in-out;
     }
+
+        .loginWrapper a:hover {
+            transform: scale(1.05);
+            transition: all .2s ease-in-out;
+        }
 
 .centeredButton {
     margin: 0 auto;
@@ -347,6 +366,66 @@ body {
     justify-content: center;
     text-align: center;
 }
+
+#btnLogin {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+    #btnLogin:hover {
+        background-color: rgba(102, 51, 102, 0.6);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    #btnLogin:active {
+        background-color: rgba(102, 51, 102, 0.6);
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+/****************************************************************/
+
+#btnSubmit {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+    #btnSubmit:hover {
+        background-color: rgba(102, 51, 102, 0.6);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    #btnSubmit:active {
+        background-color: rgba(102, 51, 102, 0.6);
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+/****************************************************************/
 
 .centeredTextNoHover {
     margin: 0 auto;
@@ -357,6 +436,7 @@ body {
     width: -moz-fit-content;
     width: fit-content;
     font-family: Arial;
+    color: black;
 }
 
 .selectClasses {

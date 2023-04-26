@@ -43,16 +43,14 @@
                 </tr>
             </table>
 
-            <br />
             <div class="centeredButton">
-                <asp:Button ID="btnSubmit" runat="server" Text="Button" OnClick="btnSubmit_Click" />
-                <br />
                 <asp:Label ID="lblStatus" runat="server" EnableViewState="False" Font-Bold="True" ForeColor="Red"></asp:Label>
+                <br /><br />
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
             </div>
-            <br />
-            <p class="centeredTextNoHover">
-                <a href="Login.aspx">Back To Login Page</a>
-            </p>
+
+            <br /><br />
+            <a href="Login.aspx">Back To Login Page</a>
             <br /><br />
         </div>
 

@@ -17,19 +17,29 @@ namespace Virtual_Advisor
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(txtUserName.Text.Length > 0 && txtPassword.Text.Length > 0)
+            string sqlChecks = "'\";\\-%<>|&()[]{}'\0\n";
+            if (txtUserName.Text.Length > 0 && txtPassword.Text.Length > 0)
             {
-                sdsForgotPassword.UpdateCommand = "UPDATE StudentInfo SET Password = '" + txtPassword.Text + "' WHERE Username = '" + txtUserName.Text + "'";
-                if(sdsForgotPassword.Update() > 0)
+                if (sqlChecks.Any(c => txtUserName.Text.Contains(c)) || sqlChecks.Any(c => txtPassword.Text.Contains(c)))
                 {
-                    Session["Username"] = txtUserName.Text;
-                    Session["Password"] = txtPassword.Text;
-
-                    lblStatus.Text = "Password has been updated.";
+                    lblStatus.Text = "Please enter only valid characters.";
                 }
                 else
                 {
-                    lblStatus.Text = "Password has not been updated. Please try again.";
+                    sdsForgotPassword.UpdateCommand = "UPDATE StudentInfo SET Password = @Password WHERE Username = @Username";
+                    sdsForgotPassword.UpdateParameters.Clear();
+                    sdsForgotPassword.UpdateParameters.Add("Password", txtPassword.Text);
+                    sdsForgotPassword.UpdateParameters.Add("Username", txtUserName.Text);
+                    if (sdsForgotPassword.Update() > 0)
+                    {
+                        Session["Username"] = txtUserName.Text;
+                        Session["Password"] = txtPassword.Text;
+                        lblStatus.Text = "Password has been updated.";
+                    }
+                    else
+                    {
+                        lblStatus.Text = "Password has not been updated. Please try again.";
+                    }
                 }
             }
             else
