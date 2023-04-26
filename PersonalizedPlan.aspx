@@ -7,6 +7,7 @@
         <title>Virtual Advisor - Personalized Plan</title>
         <link rel="stylesheet" href="Style.css" />
         <link rel="shortcut icon" type="x-icon" href="Images/icon.png" />
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
 
 <body>
@@ -23,9 +24,20 @@
             </li>
          </ul>
 
-        <asp:DropDownList ID="ddlShowMajors" runat="server" OnSelectedIndexChanged="ddlShowMajors_SelectedIndexChanged" AutoPostBack="True" AppendDataBoundItems="True"></asp:DropDownList>
-        <asp:DropDownList ID="ddlShowMinors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlShowMinors_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
+    <div class="ddlContainerPP">
+        <asp:DropDownList ID="ddlShowMajors" runat="server" OnSelectedIndexChanged="ddlShowMajors_SelectedIndexChanged" AutoPostBack="True" AppendDataBoundItems="True" CssClass="ddlCustomizationPP"></asp:DropDownList>
+        <asp:DropDownList ID="ddlShowMinors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlShowMinors_SelectedIndexChanged" AppendDataBoundItems="True" CssClass="ddlCustomizationPP"></asp:DropDownList>
+    </div>
 
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.ddlCustomizationPP').click(function () {
+                    $(this).toggleClass('rotate');
+                    $(this).toggleClass('arrow-rotate');
+                });
+            });
+        </script>
+    <div class="gridPP">
         <asp:GridView ID="gvMajorRequiredPersonalizedPlan" runat="server" DataSourceID="sdsRequiredPersonalizedPlan" Visible="False" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code"></asp:BoundField>
@@ -53,7 +65,7 @@
                 <asp:ControlParameter ControlID="ddlShowMajors" PropertyName="SelectedValue" Name="MajorMinor"></asp:ControlParameter>
             </SelectParameters>
         </asp:SqlDataSource>
-
+    </div>
         <asp:GridView ID="gvMajorOptionalPersonalizedPlan" runat="server" DataSourceID="sdsOptionalPersonalizedPlan" Visible="False" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="Code" HeaderText="Code" SortExpression="Code"></asp:BoundField>

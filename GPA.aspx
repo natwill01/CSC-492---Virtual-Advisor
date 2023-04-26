@@ -19,6 +19,7 @@
             </li>
         </ul>
 
+        <asp:Label ID="lblDisplay" runat="server" Text="" EnableViewState="False"></asp:Label>
         <asp:Button ID="btnCalcGPA" runat="server" Text="Button" OnClick="btnCalcGPA_Click" />
 
     </form>

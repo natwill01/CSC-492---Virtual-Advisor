@@ -250,6 +250,35 @@ body {
         background-color: rgba(102, 51, 102, 0.5);
     }
 
+.gridPP {
+    margin: 0 auto;
+    margin-top: 180px;
+    display: grid;
+    justify-content: center;
+    font-family: Arial;
+    font-size: 14px;
+    padding-bottom: 50px;
+}
+
+    .gridPP td {
+        padding: 10px;
+        font-family: Arial;
+    }
+
+    .gridPP tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .gridPP tr:nth-child(odd) {
+        background-color: rgba(102, 51, 102, 0.25);
+    }
+
+    .gridPP th {
+        padding: 10px;
+        font-family: Arial;
+        background-color: rgba(102, 51, 102, 0.5);
+    }
+
 /****************************************************************/
 
 .centeredText {
@@ -559,6 +588,68 @@ body {
     .ddlCustomizationCT.arrow-rotate {
         background-image: url('Images/ddArrowRotated.png');
     }
+
+.ddlContainerPP {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(102, 51, 102, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-align: center;
+}
+
+    .ddlContainerPP h3 {
+        margin: 0 auto;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-family: Arial;
+        font-size: 20px;
+        transform: scale(1);
+        transition: all .25s ease-in-out;
+        cursor: default;
+    }
+
+        .ddlContainerPP h3:hover {
+            transform: scale(1.05);
+            transition: all .25s ease-in-out;
+            cursor: default;
+        }
+
+.ddlCustomizationPP {
+    margin: 0 auto;
+    width: 450px;
+    justify-content: center;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: Arial;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+    background-image: url('Images/ddArrow.png');
+    background-size: 13px 8px;
+    background-repeat: no-repeat;
+    background-position: 96% center;
+}
+
+    .ddlCustomizationPP.arrow-rotate {
+        background-image: url('Images/ddArrowRotated.png');
+    }
+
+
 
 /****************************************************************/
 
