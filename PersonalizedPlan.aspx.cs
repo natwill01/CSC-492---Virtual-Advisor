@@ -69,6 +69,7 @@ namespace Virtual_Advisor
             gvMinorOptionalPersonalizedPlan.Visible = false;
             gvMajorRequiredPersonalizedPlan.Visible = true;
             gvMajorOptionalPersonalizedPlan.Visible = true;
+            ddlShowMinors.SelectedIndex = -1;
         }
 
         protected void ddlShowMinors_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,6 +78,7 @@ namespace Virtual_Advisor
             gvMajorOptionalPersonalizedPlan.Visible = false;
             gvMinorRequiredPersonalizedPlan.Visible = true;
             gvMinorOptionalPersonalizedPlan.Visible = true;
+            ddlShowMajors.SelectedIndex = -1;
         }
 
         private string getConnectionString()

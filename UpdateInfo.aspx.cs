@@ -19,10 +19,7 @@ namespace Virtual_Advisor
 
         protected void gvUpdateGrade_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            TextBox txtGrade = (TextBox)gvUpdateGrade.Rows[e.RowIndex].FindControl("gvUpdateGrade_Grade_" + e.RowIndex);
-            string newGrade = txtGrade.Text;
-
-            SqlDataSource sdsGradeUpdate = sender as SqlDataSource;
+            string newGrade = e.NewValues["Grade"].ToString();
             sdsGradeUpdate.UpdateParameters["Grade"].DefaultValue = newGrade;
         }
     }

@@ -23,27 +23,28 @@
         </ul>
 
     <div class="gridUP">
-        <asp:GridView ID="gvUpdateGrade" runat="server" AutoGenerateColumns="False" DataSourceID="sdsGradeUpdate" OnRowUpdating="gvUpdateGrade_RowUpdating">
+        <asp:GridView ID="gvUpdateGrade" runat="server" AutoGenerateColumns="False" DataSourceID="sdsGradeUpdate" OnRowUpdating="gvUpdateGrade_RowUpdating" DataKeyNames="Code_CT">
             <Columns>
-                <asp:BoundField DataField="Code_CT" HeaderText="Code_CT" SortExpression="Code_CT" ReadOnly="True" />
+                <asp:BoundField DataField="Code_CT" HeaderText="Code_CT" SortExpression="Code_CT" />
                 <asp:BoundField DataField="Grade" HeaderText="Grade" SortExpression="Grade" />
-                <asp:CommandField ShowEditButton="True" ButtonType="Button" />
+                <asp:CommandField ShowEditButton="True" ButtonType="Button"></asp:CommandField>
             </Columns>
         </asp:GridView>
 
         <asp:SqlDataSource ID="sdsGradeUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:VirtualAdvisorConnectionString %>" 
             SelectCommand="SELECT ClassesTaken.Code_CT, ClassesTaken.Grade FROM ClassesTaken INNER JOIN Student_ClassesTaken ON ClassesTaken.Course_ID = Student_ClassesTaken.Course_ID WHERE Student_ClassesTaken.Username = @Username" 
-            UpdateCommand="UPDATE ClassesTaken SET Grade = @Grade FROM ClassesTaken INNER JOIN Student_ClassesTaken ON ClassesTaken.Course_ID = Student_ClassesTaken.Course_ID WHERE Student_ClassesTaken.Username = @Username AND ClassesTaken.Code_CT = CourseCode">
+            UpdateCommand="UPDATE ClassesTaken SET Grade = @Grade FROM ClassesTaken INNER JOIN Student_ClassesTaken ON ClassesTaken.Course_ID = Student_ClassesTaken.Course_ID WHERE Student_ClassesTaken.Username = @Username AND ClassesTaken.Code_CT = @Code_CT">
             <SelectParameters>
                 <asp:SessionParameter SessionField="Username" Name="Username"></asp:SessionParameter>
             </SelectParameters>
-            
+        
             <UpdateParameters>
-                <asp:ControlParameter ControlID="gvUpdateGrade" Name="Grade" PropertyName="Text" />
+                <asp:Parameter Name="Grade" Type="String" />
                 <asp:SessionParameter Name="Username" SessionField="Username" />
-                <asp:ControlParameter ControlID="gvUpdateGrade" Name="CourseCode" PropertyName="Text" />
+                <asp:ControlParameter ControlID="gvUpdateGrade" Name="Code_CT" PropertyName="SelectedValue" />
             </UpdateParameters>
         </asp:SqlDataSource>
+
     </div>
         
 
